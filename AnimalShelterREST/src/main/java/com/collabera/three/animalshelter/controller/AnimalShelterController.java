@@ -57,6 +57,7 @@ public class AnimalShelterController
 			return animalService.findAll();
 		}
 	/* Above is Animal table controller mapping */
+
 	/* Below is Location table controller mapping */
 	@Autowired // will automatically create this object for you on runtime
 	ShelterService service;
@@ -94,6 +95,7 @@ public class AnimalShelterController
 	}
 	/* Above is Worker table controller mapping */
 	/* Below is Foster table controller mapping */
+  
 		@Autowired
 		private FosterService fosterService;
   
