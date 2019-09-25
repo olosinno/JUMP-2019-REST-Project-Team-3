@@ -1,6 +1,7 @@
 package com.collabera.three.animalshelter.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -8,8 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.collabera.three.animalshelter.model.AnimalShelterModel;
 import com.collabera.three.animalshelter.model.Foster;
 import com.collabera.three.animalshelter.repository.FosterRepository;
+import com.collabera.three.animalshelter.service.AnimalShelterService;
 
 @RestController
 @RequestMapping(path = "/animalshelter")
@@ -31,7 +35,7 @@ public class AnimalShelterController
 		return service.getAllShelterLocations();
 	}
 
-	@GetMapping("/api/shelterlocation/{shelterlocationid}")
+	@GetMapping("/api/shelterlocation/{shelterid}")
 	public AnimalShelterModel getShelter(@PathVariable String shelterid) { // annotation declares use of path variable {shelterid}
 		return service.getShelterLocation(Integer.parseInt(shelterid)); // converts from string to an integer before using shelter
 	}
