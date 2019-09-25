@@ -5,17 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
-
-@Data
-
-
 @Entity
 public class Shelter {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+	
 	private String shelter_name;
 	private Integer addressNo;
 	private String street;

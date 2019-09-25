@@ -17,6 +17,8 @@ import com.collabera.three.animalshelter.model.Foster;
 import com.collabera.three.animalshelter.service.FosterService;
 import com.collabera.three.animalshelter.repository.FosterRepository;
 import com.collabera.three.animalshelter.repository.ShelterRepo;
+
+import com.collabera.three.animalshelter.service.ShelterService;
 import com.collabera.three.animalshelter.service.AnimalService;
 import com.collabera.three.animalshelter.repository.AnimalRepository;
 
@@ -25,7 +27,24 @@ import com.collabera.three.animalshelter.repository.AnimalRepository;
 public class AnimalShelterController
 {
 	/* Below is Animal table controller mapping */
-	@Autowired
+	
+	/* Above is Animal table controller mapping */
+	/* Below is Location table controller mapping */
+	@Autowired // will automatically create this object for you on runtime
+	ShelterService service;
+	private ShelterRepo shelterRepo;
+
+	@GetMapping("/api/shelterlocation")
+	public List<AnimalShelterModel> getShelters() { // Spring Boot handles converting this list to JSON
+		return service.getAllShelterLocations();
+	}
+
+	@GetMapping("/api/shelterlocation/{shelterid}")
+	public AnimalShelterModel getShelter(@PathVariable String shelterid) { // annotation declares use of path variable {shelterid}
+		return service.getShelterLocation(Integer.parseInt(shelterid)); // converts from string to an integer before using shelter
+	}
+
+  @Autowired
 	private AnimalService animalService;
 
   	@PostMapping(path = "/addAnimal")
