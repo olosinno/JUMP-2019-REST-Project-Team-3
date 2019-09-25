@@ -1,10 +1,17 @@
 package com.collabera.three.animalshelter.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Shelter {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+	
 	private String shelter_name;
 	private Integer addressNo;
 	private String street;

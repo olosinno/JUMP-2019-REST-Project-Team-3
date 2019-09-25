@@ -16,7 +16,7 @@ import com.collabera.three.animalshelter.model.Foster;
 import com.collabera.three.animalshelter.service.FosterService;
 import com.collabera.three.animalshelter.repository.FosterRepository;
 import com.collabera.three.animalshelter.repository.ShelterRepo;
-import com.collabera.three.animalshelter.service.AnimalShelterService;
+import com.collabera.three.animalshelter.service.ShelterService;
 
 @RestController
 @RequestMapping(path = "/animalshelter")
@@ -27,7 +27,7 @@ public class AnimalShelterController
 	/* Above is Animal table controller mapping */
 	/* Below is Location table controller mapping */
 	@Autowired // will automatically create this object for you on runtime
-	AnimalShelterService service;
+	ShelterService service;
 	private ShelterRepo shelterRepo;
 
 	@GetMapping("/api/shelterlocation")
