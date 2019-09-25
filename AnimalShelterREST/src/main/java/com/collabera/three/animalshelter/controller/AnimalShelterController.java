@@ -112,8 +112,8 @@ public class AnimalShelterController
 		}
 		
 		@DeleteMapping("/deleteFoster/{id}")
-		public void deleteFoster(@PathVariable String fosterId)
+		public void deleteFoster(@PathVariable Integer id)
 		{
-			fosterService.deleteFoster(Integer.parseInt(fosterId));
+			fosterService.deleteFoster(id);
 		}
 }
