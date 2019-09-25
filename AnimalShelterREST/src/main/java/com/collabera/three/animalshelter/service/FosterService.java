@@ -57,4 +57,32 @@ public class FosterService
 		
 		return null;
 	}
+	
+	public void updateFoster(Foster foster)
+	{
+		Optional<Foster> findById = fosterRepository.findById(foster.getId());
+		
+		if(findById.isPresent())
+		{
+			Foster fosterToUpdate = findById.get();
+			
+			fosterToUpdate.setAnimalName(foster.getAnimalName());
+			fosterToUpdate.setAnimalType(foster.getAnimalType());
+			fosterToUpdate.setEstimatedDateOfBirth(foster.getEstimatedDateOfBirth());
+			fosterToUpdate.setFosterDescription(foster.getFosterDescription());
+			fosterToUpdate.setFosterStart(foster.getFosterStart());
+			fosterToUpdate.setImagePath(foster.getImagePath());
+			
+			fosterRepository.save(fosterToUpdate);
+		}
+		else
+		{
+			throw new IllegalArgumentException();
+		}
+	}
+	
+	public void deleteFoster(Integer id)
+	{
+		fosterRepository.deleteById(id);
+	}
 }
