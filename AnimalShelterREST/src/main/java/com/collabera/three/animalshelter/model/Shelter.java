@@ -5,6 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+<<<<<<< HEAD
+=======
+import lombok.Data;
+
+@Data
+
+
+>>>>>>> origin/master
 @Entity
 public class Shelter {
 
