@@ -22,6 +22,7 @@ public class Shelter {
 	private String township;
 	private Integer state; // make int because 
 	private Integer ZIP;
+	private String imagePath;
 
 	public Integer getId() {
 		return id;

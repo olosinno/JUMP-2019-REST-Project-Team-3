@@ -1,10 +1,11 @@
 package com.collabera.three.animalshelter.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,23 +13,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.collabera.three.animalshelter.model.AnimalShelterModel;
 import com.collabera.three.animalshelter.model.Foster;
+import com.collabera.three.animalshelter.service.FosterService;
 import com.collabera.three.animalshelter.repository.FosterRepository;
+import com.collabera.three.animalshelter.repository.ShelterRepo;
 import com.collabera.three.animalshelter.service.AnimalShelterService;
 
 @RestController
 @RequestMapping(path = "/animalshelter")
 public class AnimalShelterController
 {
-	@Autowired
- 
-	private FosterRepository fosterRepository;
-  
 	/* Below is Animal table controller mapping */
 	
 	/* Above is Animal table controller mapping */
 	/* Below is Location table controller mapping */
 	@Autowired // will automatically create this object for you on runtime
 	AnimalShelterService service;
+	private ShelterRepo shelterRepo;
 
 	@GetMapping("/api/shelterlocation")
 	public List<AnimalShelterModel> getShelters() { // Spring Boot handles converting this list to JSON
@@ -72,20 +72,22 @@ public class AnimalShelterController
 	
 	/* Above is Worker table controller mapping */
 	/* Below is Foster table controller mapping */
-  
-  @PostMapping(path = "/addFoster")
-	public @ResponseBody String addNewFoster (@RequestParam String name, @RequestParam String animalType)
-	{
-		Foster tmpFost = new Foster();
-		tmpFost.setAnimalName(name);
-		tmpFost.setAnimalType(animalType);
-		fosterRepository.save(tmpFost);
-		return "Saved";
-	}
 	
-	@GetMapping(path = "/allFoster")
-	public @ResponseBody Iterable<Foster> getAlFosters()
-	{
-		return fosterRepository.findAll();
-	}
+
+		@Autowired
+		private FosterService fosterService;
+  
+	  	@PostMapping(path = "/addFoster")
+		public @ResponseBody String addNewFoster (@RequestParam String name, 
+				@RequestParam String animalType, @RequestParam String description,
+				@RequestParam LocalDate fosterStart, @RequestParam LocalDate estimatedDateofBirth)
+		{
+			return "Saved";
+		}
+		
+		@GetMapping(path = "/allFoster")
+		public @ResponseBody Iterable<Foster> getAlFosters()
+		{
+			return fosterService.findAll();
+		}
 }
