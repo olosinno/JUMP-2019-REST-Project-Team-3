@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.collabera.three.animalshelter.model.Foster;
 import com.collabera.three.animalshelter.repository.FosterRepository;
-import com.test.model.Movie;
 
 @Service
 public class FosterService
