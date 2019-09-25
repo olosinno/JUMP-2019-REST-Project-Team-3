@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.collabera.three.animalshelter.model.Foster;
 import com.collabera.three.animalshelter.repository.FosterRepository;
 
@@ -17,10 +16,18 @@ import com.collabera.three.animalshelter.repository.FosterRepository;
 public class AnimalShelterController
 {
 	@Autowired
-	
+ 
 	private FosterRepository fosterRepository;
+  
+	/* Below is Animal table controller mapping */
 	
-	@PostMapping(path = "/addFoster")
+	/* Below is Location table controller mapping */
+	
+	/* Below is Worker table controller mapping */
+	
+	/* Below is Foster table controller mapping */
+  
+  @PostMapping(path = "/addFoster")
 	public @ResponseBody String addNewFoster (@RequestParam String name, @RequestParam String animalType)
 	{
 		Foster tmpFost = new Foster();
