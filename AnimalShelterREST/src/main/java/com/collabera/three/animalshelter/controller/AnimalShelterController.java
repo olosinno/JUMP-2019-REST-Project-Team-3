@@ -2,6 +2,8 @@ package com.collabera.three.animalshelter.controller;
 
 import java.time.LocalDate;
 
+import javax.persistence.Id;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,15 +18,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.collabera.three.animalshelter.model.Animal;
-import com.collabera.three.animalshelter.model.Staff;
 import com.collabera.three.animalshelter.model.Foster;
 import com.collabera.three.animalshelter.model.Shelter;
+import com.collabera.three.animalshelter.model.Staff;
 import com.collabera.three.animalshelter.service.FosterService;
 import com.collabera.three.animalshelter.repository.FosterRepository;
 import com.collabera.three.animalshelter.repository.ShelterRepo;
 
 import com.collabera.three.animalshelter.service.ShelterService;
-
+import com.collabera.three.animalshelter.service.StaffService;
 import com.collabera.three.animalshelter.service.AnimalService;
 import com.collabera.three.animalshelter.repository.AnimalRepository;
 
@@ -39,7 +41,7 @@ public class AnimalShelterController
 	/* Below is Animal table controller mapping */
 	 	@Autowired
 		private AnimalService animalService;
-
+	 	
 	  	@PostMapping(path = "/addAnimal")
 		public @ResponseBody String addNewAnimal (@RequestParam String imagePath, 
 				@RequestParam String name, @RequestParam String gender,
@@ -56,65 +58,7 @@ public class AnimalShelterController
 		}
 	/* Above is Animal table controller mapping */
 	/* Below is Location table controller mapping */
-<<<<<<< HEAD
 	@Autowired // will automatically create this object for you on runtime
-	ShelterService service;
-	private ShelterRepo shelterRepo;
-
-	@GetMapping("/api/shelterlocation")
-	public List<Staff> getShelters() { // Spring Boot handles converting this list to JSON
-		return service.getAllShelterLocations();
-	}
-
-	@GetMapping("/api/shelterlocation/{shelterid}")
-	public Staff getShelter(@PathVariable String shelterid) { // annotation declares use of path variable {shelterid}
-		return service.getShelterLocation(Integer.parseInt(shelterid)); // converts from string to an integer before using shelter
-	}
-
-	/* Above is Shelter table controller mapping */
-	/* Below is Location table controller mapping */
-	@Autowired // will automatically create this object for you on runtime
-	AnimalShelterService service;
-	private ShelterRepo shelterRepo;
-
-	@GetMapping("/api/shelterlocation")
-	public List<Staff> getShelters() { // Spring Boot handles converting this list to JSON
-		return service.getAllShelterLocations();
-	}
-
-	@GetMapping("/api/shelterlocation/{shelterid}")
-	public Staff getShelter(@PathVariable String shelterid) { // annotation declares use of path variable {shelterid}
-		return service.getShelterLocation(Integer.parseInt(shelterid)); // converts from string to an integer before using shelter
-	}
-
-	@PostMapping("/api/addshelter")
-	public ResponseEntity<String> addShelter(@RequestBody Staff shelter) {  // It is improper to send data through URL for security reasons.
-		Staff newShelter = service.addShelter(shelter.getName(), shelter.getAddressNo(), shelter.getStreetName(),
-				shelter.getTownship(), shelter.getState(), shelter.getZIP()); // Creates new shelter object and returns it
-		System.out.println(newShelter);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}") // Sets up path to grab each new added shelter
-				.buildAndExpand(newShelter.getId()).toUri();
-		return ResponseEntity.created(location)
-				.header("shelter", newShelter.getId() + "")
-				.body(newShelter.getName()); // Body will be sent back with confirmation header
-	}
-
-	@PutMapping("/api/updateshelter") // Pushes one update to the entire object
-	public void updateShelter(@RequestBody Staff shelter) {
-		service.updateShelter(shelter);
-	}
-
-	@DeleteMapping("/api/deleteshelter/{shelterid}")
-	public void removeShelter(@PathVariable int shelterid) {
-		service.deleteShelter(shelterid);
-	}
-
-	@DeleteMapping("/api/deleteshelter/{shelterid}")
-	public void removeShelterss(@PathVariable int shelterid) {
-		service.deleteAllShelters();
-=======
-
-		@Autowired // will automatically create this object for you on runtime
 	ShelterService service;
 	private ShelterRepo shelterRepo;
 
@@ -129,15 +73,27 @@ public class AnimalShelterController
 	public @ResponseBody Iterable<Shelter> getAllShelters()
 	{
 		return service.findAll();
->>>>>>> origin
 	}
-
 	/* Above is Location table controller mapping */
 	/* Below is Worker table controller mapping */
+	@Autowired
+	private StaffService staffService;
 
+  	@PostMapping("/addStaff")
+	public String addNewStaff (@RequestParam String name, 
+			@RequestParam String imagePath, 
+			@RequestParam String title)
+	{
+		return "Saved";
+	}
+	
+	@GetMapping("/allStaff")
+	public Iterable<Staff> getAllStaff()
+	{
+		return staffService.findAll();
+	}
 	/* Above is Worker table controller mapping */
 	/* Below is Foster table controller mapping */
-
 		@Autowired
 		private FosterService fosterService;
   
@@ -170,8 +126,8 @@ public class AnimalShelterController
 		}
 		
 		@DeleteMapping("/deleteFoster/{id}")
-		public void deleteFoster(@PathVariable Integer id)
+		public void deleteFoster(@PathVariable String fosterId)
 		{
-			fosterService.deleteFoster(id);
+			fosterService.deleteFoster(Integer.parseInt(fosterId));
 		}
 }
