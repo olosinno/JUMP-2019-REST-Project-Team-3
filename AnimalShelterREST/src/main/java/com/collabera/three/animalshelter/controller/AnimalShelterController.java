@@ -27,7 +27,23 @@ import com.collabera.three.animalshelter.repository.AnimalRepository;
 public class AnimalShelterController
 {
 	/* Below is Animal table controller mapping */
-	
+	 	@Autowired
+		private AnimalService animalService;
+
+	  	@PostMapping(path = "/addAnimal")
+		public @ResponseBody String addNewAnimal (@RequestParam String imagePath, 
+				@RequestParam String name, @RequestParam String gender,
+				@RequestParam String species, @RequestParam String breed, 
+				@RequestParam String size, @RequestParam int age)
+		{
+			return "Saved";
+		}
+		
+		@GetMapping(path = "/allAnimals")
+		public @ResponseBody Iterable<Animal> getAllAnimals()
+		{
+			return animalService.findAll();
+		}
 	/* Above is Animal table controller mapping */
 	/* Below is Location table controller mapping */
 	@Autowired // will automatically create this object for you on runtime
@@ -44,24 +60,7 @@ public class AnimalShelterController
 		return service.getShelterLocation(Integer.parseInt(shelterid)); // converts from string to an integer before using shelter
 	}
 
-  @Autowired
-	private AnimalService animalService;
-
-  	@PostMapping(path = "/addAnimal")
-	public @ResponseBody String addNewAnimal (@RequestParam String imagePath, 
-			@RequestParam String name, @RequestParam String gender,
-			@RequestParam String species, @RequestParam String breed, 
-			@RequestParam String size, @RequestParam int age)
-	{
-		return "Saved";
-	}
-	
-	@GetMapping(path = "/allAnimals")
-	public @ResponseBody Iterable<Animal> getAllAnimals()
-	{
-		return animalService.findAll();
-	}
-	/* Above is Animal table controller mapping */
+	/* Above is Shelter table controller mapping */
 	/* Below is Location table controller mapping */
 //	@Autowired // will automatically create this object for you on runtime
 //	AnimalShelterService service;
