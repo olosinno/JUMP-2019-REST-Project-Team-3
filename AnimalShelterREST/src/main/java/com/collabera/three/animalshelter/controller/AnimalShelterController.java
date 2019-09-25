@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.collabera.three.animalshelter.model.AnimalShelterModel;
 import com.collabera.three.animalshelter.model.Foster;
 import com.collabera.three.animalshelter.repository.FosterRepository;
+import com.collabera.three.animalshelter.repository.ShelterRepo;
 import com.collabera.three.animalshelter.service.AnimalShelterService;
 
 @RestController
@@ -20,7 +21,7 @@ import com.collabera.three.animalshelter.service.AnimalShelterService;
 public class AnimalShelterController
 {
 	@Autowired
- 
+
 	private FosterRepository fosterRepository;
   
 	/* Below is Animal table controller mapping */
@@ -29,6 +30,7 @@ public class AnimalShelterController
 	/* Below is Location table controller mapping */
 	@Autowired // will automatically create this object for you on runtime
 	AnimalShelterService service;
+	private ShelterRepo shelterRepo;
 
 	@GetMapping("/api/shelterlocation")
 	public List<AnimalShelterModel> getShelters() { // Spring Boot handles converting this list to JSON
