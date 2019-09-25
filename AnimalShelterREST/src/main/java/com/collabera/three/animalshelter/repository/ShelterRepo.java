@@ -1,9 +1,9 @@
 package com.collabera.three.animalshelter.repository;
 
-import org.springframework.data.repository.JPARepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.collabera.three.animalshelter.model.Shelter;
 
-public interface ShelterRepo extends JPARepository<Shelter, Integer> {
+public interface ShelterRepo extends JpaRepository<Shelter, Integer> {
 
 }
