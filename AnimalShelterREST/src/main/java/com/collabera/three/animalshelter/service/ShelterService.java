@@ -18,7 +18,7 @@ public class ShelterService {
 		this.shelterRepository = shelterRepository;
 	}
 	
-	public void addShelter(Integer id, String shelter_name, Integer addressNo, String street, String township, Integer state, Integer ZIP)
+	public void addShelter(Integer id, String shelter_name, Integer addressNo, String street, String township, String state, Integer ZIP)
 	{
 		Shelter template = new Shelter();
 		

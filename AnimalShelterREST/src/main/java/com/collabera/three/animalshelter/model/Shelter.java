@@ -5,17 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import lombok.Data;
-
-@Data
-
-
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 @Entity
 public class Shelter {
 
@@ -27,7 +16,7 @@ public class Shelter {
 	private Integer addressNo;
 	private String street;
 	private String township;
-	private Integer state; // make int because 
+	private String state;
 	private Integer ZIP;
 	private String imagePath;
 
@@ -61,10 +50,10 @@ public class Shelter {
 	public void setTownship(String township) {
 		this.township = township;
 	}
-	public Integer getState() {
+	public String getState() {
 		return state;
 	}
-	public void setState(Integer state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 	public Integer getZIP() {
