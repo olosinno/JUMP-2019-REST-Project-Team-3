@@ -24,6 +24,8 @@ public class Foster
 	
 	private String fosterDescription;
 
+	private String imagePath;
+
 	public Integer getId()
 	{
 		return id;
@@ -82,5 +84,15 @@ public class Foster
 	public void setFosterDescription(String fosterDescription)
 	{
 		this.fosterDescription = fosterDescription;
+	}
+	
+	public String getImagePath()
+	{
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath)
+	{
+		this.imagePath = imagePath;
 	}
 }
