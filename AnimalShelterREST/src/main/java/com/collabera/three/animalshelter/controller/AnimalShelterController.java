@@ -114,7 +114,7 @@ public class AnimalShelterController
 		@Autowired
 		private FosterService fosterService;
   
-	  	@PostMapping(path = "/addFoster")
+	  	@PostMapping("/addFoster")
 		public @ResponseBody String addNewFoster (@RequestParam String name, 
 				@RequestParam String animalType, @RequestParam String fosterDescription,
 				@RequestParam String estimatedDateOfBirth)
@@ -123,15 +123,18 @@ public class AnimalShelterController
 			return "Saved";
 		}
 		
-		@GetMapping(path = "/allFoster")
+		@GetMapping("/allFoster")
 		public @ResponseBody Iterable<Foster> getAllFosters()
 		{
 			return fosterService.findAll();
 		}
 		
-		@GetMapping(path = "/getFoster/{fosterId}")
+		@GetMapping("/getFoster/{fosterId}")
 		public @ResponseBody Foster getFosterById(@PathVariable String fosterId)
 		{
 			return fosterService.getFosterById(fosterId);
 		}
+		
+		@PutMapping("/updateFoster/{fosterId}")
+		public @ResponseBody 
 }
