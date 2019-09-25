@@ -20,7 +20,7 @@ public class FosterService
 		this.fosterRepository = fosterRepository;
 	}
 	
-	public void addFoster(String name, String animalType, String fosterDescription, String estimatedDateOfBirth)
+	public void addFoster(String name, String animalType, String fosterDescription, String estimatedDateOfBirth, String imagePath)
 	{
 		Foster tmpFost = new Foster();
 		
@@ -29,6 +29,7 @@ public class FosterService
 		tmpFost.setFosterDescription(fosterDescription);
 		tmpFost.setEstimatedDateOfBirth(LocalDate.parse(estimatedDateOfBirth));
 		tmpFost.setFosterStart(LocalDate.now());
+		tmpFost.setImagePath(imagePath);
 		
 		fosterRepository.save(tmpFost);
 	}
