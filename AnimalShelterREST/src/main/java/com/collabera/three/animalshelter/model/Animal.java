@@ -7,16 +7,19 @@ import javax.persistence.Id;
 
 import lombok.*;
 
-@Data
+
 @Entity
 public class Animal {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	private Integer id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	private Integer id;
 	
 	private  String imagePath;
 
 	private String name;
 	
+	private String gender;
+
 	private String species;
 	
 	private String breed;
@@ -24,8 +27,6 @@ public class Animal {
 	private String size;
 	
 	private int age;
-	
-	private String shelter;
 	
 	public Integer getId() {
 		return id;
@@ -49,6 +50,14 @@ public class Animal {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getSpecies() {
@@ -81,14 +90,6 @@ public class Animal {
 
 	public void setAge(int age) {
 		this.age = age;
-	}
-
-	public String getLocation() {
-		return shelter;
-	}
-
-	public void setLocation(String location) {
-		this.shelter = location;
 	}
 	
 
