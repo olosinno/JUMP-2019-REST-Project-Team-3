@@ -1,6 +1,5 @@
 package com.collabera.three.animalshelter.service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class ShelterService {
 		this.shelterRepository = shelterRepository;
 	}
 	
-	public void addShelter(Integer id, String shelter_name, Integer addressNo, String street, String township, Integer state, Integer ZIP)
+	public void addShelter(Integer id, String shelter_name, Integer addressNo, String street, String township, String state, Integer ZIP)
 	{
 		Shelter template = new Shelter();
 		
