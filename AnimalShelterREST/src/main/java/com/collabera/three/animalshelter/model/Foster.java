@@ -1,5 +1,7 @@
 package com.collabera.three.animalshelter.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +17,13 @@ public class Foster
 	private String animalName;
 	
 	private String animalType;
+
+	private LocalDate estimatedDateOfBirth;
 	
+	private LocalDate fosterStart;
+	
+	private String fosterDescription;
+
 	public Integer getId()
 	{
 		return id;
@@ -44,5 +52,35 @@ public class Foster
 	public void setAnimalType(String animalType)
 	{
 		this.animalType = animalType;
+	}
+	
+	public LocalDate getEstimatedDateOfBirth()
+	{
+		return estimatedDateOfBirth;
+	}
+
+	public void setEstimatedDateOfBirth(LocalDate estimatedDateOfBirth)
+	{
+		this.estimatedDateOfBirth = estimatedDateOfBirth;
+	}
+
+	public LocalDate getFosterStart()
+	{
+		return fosterStart;
+	}
+
+	public void setFosterStart(LocalDate fosterStart)
+	{
+		this.fosterStart = fosterStart;
+	}
+	
+	public String getFosterDescription()
+	{
+		return fosterDescription;
+	}
+
+	public void setFosterDescription(String fosterDescription)
+	{
+		this.fosterDescription = fosterDescription;
 	}
 }
