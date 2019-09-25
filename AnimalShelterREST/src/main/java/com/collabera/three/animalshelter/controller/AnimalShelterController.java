@@ -4,8 +4,12 @@ import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,9 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.collabera.three.animalshelter.model.Animal;
 import com.collabera.three.animalshelter.model.Staff;
 import com.collabera.three.animalshelter.model.Foster;
+import com.collabera.three.animalshelter.model.Shelter;
 import com.collabera.three.animalshelter.service.FosterService;
 import com.collabera.three.animalshelter.repository.FosterRepository;
 import com.collabera.three.animalshelter.repository.ShelterRepo;
+
+import com.collabera.three.animalshelter.service.ShelterService;
+
+import com.collabera.three.animalshelter.service.AnimalService;
+import com.collabera.three.animalshelter.repository.AnimalRepository;
 
 import com.collabera.three.animalshelter.service.ShelterService;
 import com.collabera.three.animalshelter.service.AnimalService;
@@ -46,6 +56,7 @@ public class AnimalShelterController
 		}
 	/* Above is Animal table controller mapping */
 	/* Below is Location table controller mapping */
+<<<<<<< HEAD
 	@Autowired // will automatically create this object for you on runtime
 	ShelterService service;
 	private ShelterRepo shelterRepo;
@@ -101,20 +112,37 @@ public class AnimalShelterController
 	@DeleteMapping("/api/deleteshelter/{shelterid}")
 	public void removeShelterss(@PathVariable int shelterid) {
 		service.deleteAllShelters();
+=======
+
+		@Autowired // will automatically create this object for you on runtime
+	ShelterService service;
+	private ShelterRepo shelterRepo;
+
+  	@PostMapping(path = "/addShelter")
+	public @ResponseBody String addNewShelter (@RequestParam String imagePath, 
+			@RequestParam Integer id, @RequestParam String shelter_name,
+			@RequestParam Integer addressNo, @RequestParam String street, 
+			@RequestParam String township, @RequestParam String state,
+			@RequestParam Integer ZIP)
+	{ return "Saved"; }
+	@GetMapping(path = "/allShelters")
+	public @ResponseBody Iterable<Shelter> getAllShelters()
+	{
+		return service.findAll();
+>>>>>>> origin
 	}
 
 	/* Above is Location table controller mapping */
 	/* Below is Worker table controller mapping */
-	
+
 	/* Above is Worker table controller mapping */
 	/* Below is Foster table controller mapping */
-	
 
 		@Autowired
 		private FosterService fosterService;
   
-	  	@PostMapping(path = "/addFoster")
-		public @ResponseBody String addNewFoster (@RequestParam String name, 
+	  	@PostMapping("/addFoster")
+		public String addNewFoster (@RequestParam String name, 
 				@RequestParam String animalType, @RequestParam String fosterDescription,
 				@RequestParam String estimatedDateOfBirth)
 		{
@@ -122,10 +150,28 @@ public class AnimalShelterController
 			return "Saved";
 		}
 		
-		@GetMapping(path = "/allFoster")
-		public @ResponseBody Iterable<Foster> getAlFosters()
+		@GetMapping("/allFoster")
+		public Iterable<Foster> getAllFosters()
 		{
-			
 			return fosterService.findAll();
+		}
+		
+		@GetMapping("/getFoster/{fosterId}")
+		public Foster getFosterById(@PathVariable String fosterId)
+		{
+			return fosterService.getFosterById(fosterId);
+		}
+		
+		@PutMapping("/updateFoster")
+		public String updateFoster(@RequestBody Foster foster)
+		{
+			fosterService.updateFoster(foster);
+			return "Updated";
+		}
+		
+		@DeleteMapping("/deleteFoster/{id}")
+		public void deleteFoster(@PathVariable Integer id)
+		{
+			fosterService.deleteFoster(id);
 		}
 }
