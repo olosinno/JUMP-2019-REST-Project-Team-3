@@ -6,12 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import lombok.Data;
 
 @Data
 
 
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 @Entity
 public class Shelter {
