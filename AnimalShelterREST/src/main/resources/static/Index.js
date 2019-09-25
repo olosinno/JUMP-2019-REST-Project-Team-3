@@ -8,6 +8,7 @@ function initialize(){
 function animalCards(){
     var animals = document.getElementById("animals");
     var card = document.createElement("div");
+
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "/animalshelter/allAnimals", true);
     xhttp.onreadystatechange = function() {
@@ -41,6 +42,7 @@ function staffCards(){
 function fosterCards(){
     var fosters = document.getElementById("animals");
     var card = document.createElement("div");
+
     card.classList.add("card");
     animals.appendChild(card);
 }

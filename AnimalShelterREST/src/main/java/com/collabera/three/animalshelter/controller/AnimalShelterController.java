@@ -102,9 +102,10 @@ public class AnimalShelterController
 	  	@PostMapping("/addFoster")
 		public String addNewFoster (@RequestParam String name, 
 				@RequestParam String animalType, @RequestParam String fosterDescription,
-				@RequestParam String estimatedDateOfBirth)
+				@RequestParam String estimatedDateOfBirth,
+				@RequestParam String imagePath)
 		{
-	  		fosterService.addFoster(name, animalType, fosterDescription, estimatedDateOfBirth);
+	  		fosterService.addFoster(name, animalType, fosterDescription, estimatedDateOfBirth, imagePath);
 			return "Saved";
 		}
 		
