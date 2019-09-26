@@ -17,14 +17,6 @@ public class Staff {
 	
 	private String imagePath;
 
-	public String getImagePath() {
-		return imagePath;
-	}
-
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -47,6 +39,14 @@ public class Staff {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	
 }
