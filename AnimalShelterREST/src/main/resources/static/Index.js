@@ -309,9 +309,10 @@ function createNewAnimal(link)
             theModalfooterButton.innerHTML = "Add";
 
             theModalfooter.appendChild(theModalfooterButton);
+    
     switch(link)
     {
-            case "foster":
+            case 'foster':
                 // Adds H4 of header
                 var theModalHeaderH4 = document.createElement("h4");
                 theModalHeaderH4.className = "modal-title";
@@ -320,9 +321,409 @@ function createNewAnimal(link)
                 theModalHeader.prepend(theModalHeaderH4);
 
                 // Adds form to body
-                var theModalBodyForm = document.createElement("div");
-                theModalBodyForm
+                var theModalBodyForm = document.createElement("form");
                 theModalBody.appendChild(theModalBodyForm);
+
+                // Adds the Name form-------------------------------------------
+                    // Creates input group
+                    var theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    var theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    var theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Name";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    var theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+                
+                // Adds the Description form------------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Description";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+                // Adds the Type form ------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Animal Type";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+                // Adds the Date form-------------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Estimated Birth";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.placeholder = "YYYY-MM-DD"
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+            break;
+
+            case 'animal':
+                // Adds H4 of header
+                var theModalHeaderH4 = document.createElement("h4");
+                theModalHeaderH4.className = "modal-title";
+                theModalHeaderH4.innerText = "Add New Animal!";
+
+                theModalHeader.prepend(theModalHeaderH4);
+
+                // Adds form to body
+                var theModalBodyForm = document.createElement("form");
+                theModalBody.appendChild(theModalBodyForm);
+
+                // Adds the Age form-------------------------------------------
+                    // Creates input group
+                    var theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    var theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    var theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Age";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    var theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+                
+                // Adds the Breed form------------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Breed";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+                // Adds the Gender form ------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Gender";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the Select to group
+                    theModalBodyFormGroupText = document.createElement("select");
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+                        // Adds the Male to options
+                        theModalBodyFormGroupSelect = document.createElement("option");
+                        theModalBodyFormGroupSelect.innerHTML = "Male"
+                        theModalBodyFormGroupText.append(theModalBodyFormGroupSelect);
+                        
+                        // Adds the Male to options
+                        theModalBodyFormGroupSelect = document.createElement("option");
+                        theModalBodyFormGroupSelect.innerHTML = "Fale"
+                        theModalBodyFormGroupText.append(theModalBodyFormGroupSelect);
+            break;
+
+            case 'shelter':
+                // Adds H4 of header
+                var theModalHeaderH4 = document.createElement("h4");
+                theModalHeaderH4.className = "modal-title";
+                theModalHeaderH4.innerText = "Add New Shelter!";
+
+                theModalHeader.prepend(theModalHeaderH4);
+
+                // Adds form to body
+                var theModalBodyForm = document.createElement("form");
+                theModalBody.appendChild(theModalBodyForm);
+
+                // Adds the Name form-------------------------------------------
+                    // Creates input group
+                    var theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    var theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    var theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Name";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    var theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+                
+                // Adds the Address Number form------------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Address Number";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+                // Adds the Street form ------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Street";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+                // Adds the Town form-------------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Town";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+            
+                // Adds the Town form-------------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Town";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+                // Adds the Zip form-------------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Zip";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+                // Adds the State form-------------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "State";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+            break;
+
+            case 'staff':
+                // Adds H4 of header
+                var theModalHeaderH4 = document.createElement("h4");
+                theModalHeaderH4.className = "modal-title";
+                theModalHeaderH4.innerText = "Add New Staff Member!";
+
+                theModalHeader.prepend(theModalHeaderH4);
+
+                // Adds form to body
+                var theModalBodyForm = document.createElement("form");
+                theModalBody.appendChild(theModalBodyForm);
+
+                // Adds the Name form-------------------------------------------
+                    // Creates input group
+                    var theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    var theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    var theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Name";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    var theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+                
+                // Adds the Title form------------------------------------------
+                    // Creates input group
+                    theModalBodyFormGroup1 = document.createElement("div");
+                    theModalBodyFormGroup1.className = "input-group mb-3";
+                    theModalBodyForm.append(theModalBodyFormGroup1);
+
+                    theModalBodyFormGroup2 = document.createElement("div");
+                    theModalBodyFormGroup2.className = "input-group-prepend";
+                    theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                    // Creates input group span
+                    theModalBodyFormGroupSpan = document.createElement("span");
+                    theModalBodyFormGroupSpan.className = "input-group-text";
+                    theModalBodyFormGroupSpan.innerHTML = "Title";
+                    theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                    // Adds the text to group
+                    theModalBodyFormGroupText = document.createElement("input");
+                    theModalBodyFormGroupText.type = "text";
+                    theModalBodyFormGroupText.className = "form-control"
+                    theModalBodyFormGroup1.append(theModalBodyFormGroupText);
             break;
     }
 
