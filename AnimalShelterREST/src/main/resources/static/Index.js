@@ -7,6 +7,7 @@ function initialize(){
 
 function animalCards(){
     var animals = document.getElementById("animals");
+    var card = document.createElement("div");
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "/animalshelter/allAnimals", true);
     var cardDeck = document.createElement("div");
