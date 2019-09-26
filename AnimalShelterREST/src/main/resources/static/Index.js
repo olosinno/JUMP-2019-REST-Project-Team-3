@@ -3,6 +3,7 @@ function initialize(){
     locationCards();
     staffCards();
     fosterCards();
+    aboutUs();
 }
 
 function animalCards(){
@@ -37,6 +38,7 @@ function animalCards(){
                     cardImg.src = element.imagePath;
                     cardImg.alt = "Animal Image";
                     cardImg.style.objectFit = "cover";
+                    cardImg.style.maxHeight = "300px";
                     //Card Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -84,6 +86,7 @@ function locationCards(){
                     cardImg.src = element.imagePath;
                     cardImg.alt = "Location Image";
                     cardImg.style.objectFit = "cover";
+                    cardImg.style.maxHeight = "300px";
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -130,6 +133,7 @@ function staffCards(){
                     cardImg.src = element.imagePath;
                     cardImg.alt = "Staff Image";
                     cardImg.style.objectFit = "cover";
+                    cardImg.style.maxHeight = "300px";
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -164,7 +168,6 @@ function fosterCards(){
                 card.classList.add("rounded");
                 card.classList.add("bg-warning");
                 card.style.margin = "0.25rem";
-                card.style.width = "400px";
                 //Create Card Components
                     //Head
                     var cardHead = document.createElement("div");
@@ -177,6 +180,7 @@ function fosterCards(){
                     cardImg.src = element.imagePath;
                     cardImg.alt = "Foster Image";
                     cardImg.style.objectFit = "cover";
+                    cardImg.style.maxHeight = "300px";
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -189,4 +193,14 @@ function fosterCards(){
         }
       };
     xhttp.send();
+}
+
+function aboutUs(){
+    var section = document.getElementById("aboutUs");
+    var header = document.createElement("h3");
+    var content = document.createElement("p");
+    header.innerHTML = "About Us";
+    content.innerHTML = "We talk about us here";
+    section.appendChild(header);
+    section.appendChild(content);
 }
