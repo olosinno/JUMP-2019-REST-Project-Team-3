@@ -64,7 +64,7 @@ public class AnimalShelterController
 	private ShelterRepo shelterRepo;
 
   	@PostMapping(path = "/addShelter")
-	public @ResponseBody String addNewShelter (@RequestParam String imagePath, 
+	public @ResponseBody String addNewShelter (@RequestParam String image_path, 
 			@RequestParam Integer id, @RequestParam String shelter_name,
 			@RequestParam Integer addressNo, @RequestParam String street, 
 			@RequestParam String township, @RequestParam String state,

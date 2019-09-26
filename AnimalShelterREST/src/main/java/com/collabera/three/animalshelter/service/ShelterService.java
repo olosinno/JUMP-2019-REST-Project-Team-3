@@ -18,7 +18,8 @@ public class ShelterService {
 		this.shelterRepository = shelterRepository;
 	}
 	
-	public void addShelter(Integer id, String shelter_name, Integer addressNo, String street, String township, String state, Integer ZIP)
+	public void addShelter(Integer id, String shelter_name, Integer addressNo, String street, String township, String state, 
+			Integer ZIP, String image_path)
 	{
 		Shelter template = new Shelter();
 		
@@ -29,6 +30,7 @@ public class ShelterService {
 		template.setTownship(township);
 		template.setState(state);
 		template.setZIP(ZIP);
+		template.setImage_path(image_path);
 		
 		shelterRepository.save(template);
 	}
