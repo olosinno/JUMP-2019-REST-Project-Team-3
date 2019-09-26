@@ -1,20 +1,43 @@
 function initialize(){
+    //generate card decks
     animalCards();
     locationCards();
     staffCards();
     fosterCards();
-    aboutUs();
+    //make about 
+    aboutUs();  
 }
 
 function animalCards(){
+    //Grab HTML Placeholder
     var animals = document.getElementById("animals");
+    //Open AJAX read from Controller Mappings
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "/animalshelter/allAnimals", true);
+    //Card Deck Contains Cards
     var cardDeck = document.createElement("div");
     cardDeck.classList.add("card-group");
+    //Card Deck Header
     var header = document.createElement("h3");
     header.innerHTML = "Featured Animals";
-    animals.appendChild(header);
+    header.classList.add("font-weight-bold");
+    header.classList.add("p-2");
+    //Create Button
+    // var cButton = document.createElement("button");
+    // cButton.classList.add("btn");
+    // cButton.classList.add("btn-info");
+    // cButton.classList.add("btn-lg");
+    // cButton.classList.add("active");
+    // cButton.classList.add("p-2");
+    // cButton.innerHTML = "Add an Animal";
+    //Create Div to Align Header and Button
+    var topDiv = document.createElement("div");
+    topDiv.classList.add("d-flex");
+    topDiv.classList.add("flex-row");
+    //Add Card Deck to Placeholder
+    topDiv.appendChild(header);
+    // topDiv.appendChild(cButton);
+    animals.appendChild(topDiv);
     animals.appendChild(cardDeck);
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -43,10 +66,14 @@ function animalCards(){
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
                     cardTxt.innerHTML = element.gender + element.species;
+                    //Card Footer
+                    var cardFtr = document.createElement("div");
+                    cardFtr.classList.add("card-footer");
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
                     card.appendChild(cardTxt);
+                    card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
             });    
         }
@@ -62,6 +89,7 @@ function locationCards(){
     cardDeck.classList.add("card-group");
     var header = document.createElement("h3");
     header.innerHTML = "Our Locations";
+    header.classList.add("font-weight-bold");
     locations.appendChild(header);
     locations.appendChild(cardDeck);
     xhttp.onreadystatechange = function() {
@@ -90,10 +118,14 @@ function locationCards(){
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
+                    //Card Footer
+                    var cardFtr = document.createElement("div");
+                    cardFtr.classList.add("card-footer");
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
                     card.appendChild(cardTxt);
+                    card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
             });    
         }
@@ -109,6 +141,7 @@ function staffCards(){
     cardDeck.classList.add("card-group");
     var header = document.createElement("h3");
     header.innerHTML = "Our Staff";
+    header.classList.add("font-weight-bold");
     staff.appendChild(header);
     staff.appendChild(cardDeck);
     xhttp.onreadystatechange = function() {
@@ -137,10 +170,14 @@ function staffCards(){
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
+                    //Card Footer
+                    var cardFtr = document.createElement("div");
+                    cardFtr.classList.add("card-footer");
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
                     card.appendChild(cardTxt);
+                    card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
             });    
         }
@@ -156,6 +193,7 @@ function fosterCards(){
     cardDeck.classList.add("card-group");
     var header = document.createElement("h3");
     header.innerHTML = "Foster Animals";
+    header.classList.add("font-weight-bold");
     fosters.appendChild(header);
     fosters.appendChild(cardDeck);
     xhttp.onreadystatechange = function() {
@@ -184,10 +222,14 @@ function fosterCards(){
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
+                    //Card Footer
+                    var cardFtr = document.createElement("div");
+                    cardFtr.classList.add("card-footer");
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
                     card.appendChild(cardTxt);
+                    card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
             });    
         }
@@ -197,8 +239,12 @@ function fosterCards(){
 
 function aboutUs(){
     var section = document.getElementById("aboutUs");
+    section.classList.add("d-flex");
+    section.classList.add("flex-column");
     var header = document.createElement("h3");
+    header.classList.add("p2");
     var content = document.createElement("p");
+    content.classList.add("p2");
     header.innerHTML = "About Us";
     content.innerHTML = "We talk about us here";
     section.appendChild(header);
