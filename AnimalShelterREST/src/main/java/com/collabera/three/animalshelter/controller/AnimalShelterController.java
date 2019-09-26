@@ -70,11 +70,29 @@ public class AnimalShelterController
 			@RequestParam String township, @RequestParam String state,
 			@RequestParam Integer ZIP)
 	{ return "Saved"; }
-	@GetMapping(path = "/allShelters")
-	public @ResponseBody Iterable<Shelter> getAllShelters()
+
+	@GetMapping("/getShelter/{shelterid}")
+	public Foster getShelterById(@PathVariable String shelterid)
+	{
+		return ShelterService.getShelterById(shelterid);
+	}
+  	@GetMapping(path = "/allShelters")
+	public Iterable<Shelter> getAllShelters()
 	{
 		return service.findAll();
 	}
+  	@PutMapping(path = "/updateShelter")
+  	public String updateShelter(@RequestBody Shelter shelter)
+  	{
+  		ShelterService.updateShelter(shelter);
+  		return "Updated";
+  	}
+	@DeleteMapping("/deleteShelter/{shelterid}")
+	public void deleteShelter(@PathVariable String shelterid)
+	{
+		ShelterService.deleteShelter(Integer.parseInt(shelterid));
+	}
+
 	/* Above is Location table controller mapping */
 	/* Below is Worker table controller mapping */
 	@Autowired

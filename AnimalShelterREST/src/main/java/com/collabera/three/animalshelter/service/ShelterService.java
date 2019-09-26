@@ -1,10 +1,12 @@
 package com.collabera.three.animalshelter.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.collabera.three.animalshelter.model.Foster;
 import com.collabera.three.animalshelter.model.Shelter;
 import com.collabera.three.animalshelter.repository.ShelterRepo;
 
@@ -38,5 +40,15 @@ public class ShelterService {
 	public List<Shelter> findAll()
 	{
 		return shelterRepository.findAll();
+	}
+	public Shelter getShelterById(String shelterid)
+	{
+		try
+		{
+			Optional<Shelter> ShelterOpt = shelterRepository.findById(Integer.parseInt(shelterid));
+			if(ShelterOpt.isPresent()) return ShelterOpt.get();
+		}
+		catch(Exception e) { }
+		return null;
 	}
 }
