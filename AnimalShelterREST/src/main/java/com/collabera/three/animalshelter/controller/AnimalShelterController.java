@@ -72,9 +72,9 @@ public class AnimalShelterController
 	{ return "Saved"; }
 
 	@GetMapping("/getShelter/{shelterid}")
-	public Foster getShelterById(@PathVariable String shelterid)
+	public Shelter getShelterById(@PathVariable String shelterid)
 	{
-		return ShelterService.getShelterById(shelterid);
+		return service.getShelterById(shelterid);
 	}
   	@GetMapping(path = "/allShelters")
 	public Iterable<Shelter> getAllShelters()
@@ -84,13 +84,13 @@ public class AnimalShelterController
   	@PutMapping(path = "/updateShelter")
   	public String updateShelter(@RequestBody Shelter shelter)
   	{
-  		ShelterService.updateShelter(shelter);
+  		service.updateShelter(shelter);
   		return "Updated";
   	}
-	@DeleteMapping("/deleteShelter/{shelterid}")
+  	@DeleteMapping("/deleteShelter/{shelterid}")
 	public void deleteShelter(@PathVariable String shelterid)
 	{
-		ShelterService.deleteShelter(Integer.parseInt(shelterid));
+		service.deleteShelter(Integer.parseInt(shelterid));
 	}
 
 	/* Above is Location table controller mapping */
