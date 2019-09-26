@@ -20,12 +20,29 @@ function animalCards(){
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(xhttp.responseText);
             data.forEach(element => {
+                //Create Card
                 var card = document.createElement("div");
-                card.innerHTML = element.name;
                 card.classList.add("card");
                 card.classList.add("rounded");
                 card.classList.add("bg-primary");
                 card.style.margin = "0.25rem";
+                //Create Card Components
+                    //Header
+                    var cardHead = document.createElement("div");
+                    cardHead.classList.add("card-header");
+                    cardHead.innerHTML = element.name;
+                    //Image
+                    var cardImg = document.createElement("img");
+                    cardImg.classList.add("card-img-top");
+                    cardImg.src = element.imagePath;
+                    //Card Text
+                    var cardTxt = document.createElement("p");
+                    cardTxt.classList.add("card-text");
+                    cardTxt.innerHTML = element.gender + element.species;
+                    //Write Card
+                    card.appendChild(cardHead);
+                    card.appendChild(cardImg);
+                    card.appendChild(cardTxt);
                 cardDeck.appendChild(card);
             });    
         }
@@ -48,12 +65,21 @@ function locationCards(){
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(xhttp.responseText);
             data.forEach(element => {
+                //Create Card
                 var card = document.createElement("div");
-                card.innerHTML = element.shelter_name;
                 card.classList.add("card");
                 card.classList.add("rounded");
                 card.classList.add("bg-danger");
                 card.style.margin = "0.25rem";
+                //Create Card Components
+                    var cardHead = document.createElement("div");
+                    cardHead.classList.add("card-header");
+                    cardHead.innerHTML = element.shelter_name;
+                    var cardImg = document.createElement("img");
+                    cardImg.classList.add("card-img-top");
+                    cardImg.src = element.imagePath;
+                    card.appendChild(cardHead);
+                    card.appendChild(cardImg);
                 cardDeck.appendChild(card);
             });    
         }
@@ -76,12 +102,26 @@ function staffCards(){
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(xhttp.responseText);
             data.forEach(element => {
+                //Create Card
                 var card = document.createElement("div");
-                card.innerHTML = element.name;
                 card.classList.add("card");
                 card.classList.add("rounded");
                 card.classList.add("bg-dark");
                 card.style.margin = "0.25rem";
+                //Create Card Components
+                    //Header
+                    var cardHead = document.createElement("div");
+                    cardHead.classList.add("card-header");
+                    cardHead.innerHTML = element.name;
+                    //Image
+                    var cardImg = document.createElement("img");
+                    cardImg.classList.add("card-img-top");
+                    cardImg.src = element.imagePath;
+                    var cardTxt = document.createElement("p");
+                    cardTxt.classList.add("card-text");
+                    //Write Card
+                    card.appendChild(cardHead);
+                    card.appendChild(cardImg);
                 staff.appendChild(card);
             });    
         }
@@ -104,12 +144,21 @@ function fosterCards(){
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(xhttp.responseText);
             data.forEach(element => {
+                //Create the Card
                 var card = document.createElement("div");
-                card.innerHTML = element.animalName;
                 card.classList.add("card");
                 card.classList.add("rounded");
                 card.classList.add("bg-warning");
                 card.style.margin = "0.25rem";
+                //Create Card Components
+                    var cardHead = document.createElement("div");
+                    cardHead.classList.add("card-header");
+                    cardHead.innerHTML = element.animalName;
+                    var cardImg = document.createElement("img");
+                    cardImg.classList.add("card-img-top");
+                    cardImg.src = element.imagePath;
+                    card.appendChild(cardHead);
+                    card.appendChild(cardImg);
                 fosters.appendChild(card);
             });    
         }
