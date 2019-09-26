@@ -35,6 +35,7 @@ function animalCards(){
                     var cardImg = document.createElement("img");
                     cardImg.classList.add("card-img-top");
                     cardImg.src = element.imagePath;
+                    cardImg.alt = "Animal Image";
                     //Card Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -47,7 +48,6 @@ function animalCards(){
             });    
         }
       };
-    
     xhttp.send();
 }
 
@@ -72,19 +72,26 @@ function locationCards(){
                 card.classList.add("bg-danger");
                 card.style.margin = "0.25rem";
                 //Create Card Components
+                    //Head
                     var cardHead = document.createElement("div");
                     cardHead.classList.add("card-header");
                     cardHead.innerHTML = element.shelter_name;
+                    //Image
                     var cardImg = document.createElement("img");
                     cardImg.classList.add("card-img-top");
                     cardImg.src = element.imagePath;
+                    cardImg.alt = "Location Image";
+                    //Text
+                    var cardTxt = document.createElement("p");
+                    cardTxt.classList.add("card-text");
+                    //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
+                    card.appendChild(cardTxt);
                 cardDeck.appendChild(card);
             });    
         }
       };
-    
     xhttp.send();
 }
 
@@ -117,16 +124,18 @@ function staffCards(){
                     var cardImg = document.createElement("img");
                     cardImg.classList.add("card-img-top");
                     cardImg.src = element.imagePath;
+                    cardImg.alt = "Staff Image"
+                    //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
+                    card.appendChild(cardTxt);
                 staff.appendChild(card);
             });    
         }
       };
-    
     xhttp.send();
 }
 
@@ -151,18 +160,25 @@ function fosterCards(){
                 card.classList.add("bg-warning");
                 card.style.margin = "0.25rem";
                 //Create Card Components
+                    //Head
                     var cardHead = document.createElement("div");
                     cardHead.classList.add("card-header");
                     cardHead.innerHTML = element.animalName;
+                    //Image
                     var cardImg = document.createElement("img");
                     cardImg.classList.add("card-img-top");
                     cardImg.src = element.imagePath;
+                    cardImg.alt = "Foster Image";
+                    //Text
+                    var cardTxt = document.createElement("p");
+                    cardTxt.classList.add("card-text");
+                    //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
+                    card.appendChild(cardTxt);
                 fosters.appendChild(card);
             });    
         }
       };
-    
     xhttp.send();
 }
