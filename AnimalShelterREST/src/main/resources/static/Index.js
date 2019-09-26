@@ -83,7 +83,7 @@ function locationCards(){
                     var cardImg = document.createElement("img");
                     cardImg.classList.add("card-img-top");
                     cardImg.classList.add("card-body");
-                    cardImg.src = element.imagePath;
+                    cardImg.src = element.image_path;
                     cardImg.alt = "Location Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
