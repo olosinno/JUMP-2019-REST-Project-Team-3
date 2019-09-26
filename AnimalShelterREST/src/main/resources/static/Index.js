@@ -33,8 +33,10 @@ function animalCards(){
                     //Image
                     var cardImg = document.createElement("img");
                     cardImg.classList.add("card-img-top");
+                    cardImg.classList.add("card-body");
                     cardImg.src = element.imagePath;
                     cardImg.alt = "Animal Image";
+                    cardImg.style.objectFit = "cover";
                     //Card Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -78,8 +80,10 @@ function locationCards(){
                     //Image
                     var cardImg = document.createElement("img");
                     cardImg.classList.add("card-img-top");
+                    cardImg.classList.add("card-body");
                     cardImg.src = element.imagePath;
                     cardImg.alt = "Location Image";
+                    cardImg.style.objectFit = "cover";
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -122,8 +126,10 @@ function staffCards(){
                     //Image
                     var cardImg = document.createElement("img");
                     cardImg.classList.add("card-img-top");
+                    cardImg.classList.add("card-body");
                     cardImg.src = element.imagePath;
-                    cardImg.alt = "Staff Image"
+                    cardImg.alt = "Staff Image";
+                    cardImg.style.objectFit = "cover";
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -167,8 +173,10 @@ function fosterCards(){
                     //Image
                     var cardImg = document.createElement("img");
                     cardImg.classList.add("card-img-top");
+                    cardImg.classList.add("card-body");
                     cardImg.src = element.imagePath;
                     cardImg.alt = "Foster Image";
+                    cardImg.style.objectFit = "cover";
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
