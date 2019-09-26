@@ -51,4 +51,30 @@ public class ShelterService {
 		catch(Exception e) { }
 		return null;
 	}
+	public void updateShelter(Shelter shelter)
+	{
+		Optional<Shelter> findById = shelterRepository.findById(shelter.getId());
+		if(findById.isPresent())
+		{
+			Shelter shelterUpdate = findById.get();
+			shelterUpdate.setImage_path(shelter.getImage_path());
+			shelterUpdate.setShelter_name(shelter.getShelter_name());
+			shelterUpdate.setAddressNo(shelter.getAddressNo());
+			shelterUpdate.setStreet(shelter.getStreet());
+			shelterUpdate.setTownship(shelter.getTownship());
+			shelterUpdate.setState(shelter.getState());
+			shelterUpdate.setZIP(shelter.getZIP());
+
+			shelterRepository.save(shelterUpdate);
+		}
+		else
+		{
+			throw new IllegalArgumentException();
+		}
+	}
+	public void deleteShelter(Integer id)
+	{
+		shelterRepository.deleteById(id);
+	}
+
 }
