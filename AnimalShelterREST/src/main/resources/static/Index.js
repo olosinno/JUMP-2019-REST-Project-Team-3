@@ -22,15 +22,6 @@ function animalCards(){
     header.innerHTML = "Featured Animals";
     header.classList.add("font-weight-bold");
     header.classList.add("p-2");
-    //Create Button
-    // var cButton = document.createElement("button");
-    // cButton.classList.add("btn");
-    // cButton.classList.add("btn-info");
-    // cButton.classList.add("btn-lg");
-    // cButton.classList.add("active");
-    // cButton.classList.add("p-2");
-    // cButton.innerHTML = "Add an Animal";
-    //Create Div to Align Header and Button
     var topDiv = document.createElement("div");
     topDiv.classList.add("d-flex");
     topDiv.classList.add("flex-row");
@@ -65,7 +56,7 @@ function animalCards(){
                     //Card Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
-                    cardTxt.innerHTML = element.gender + element.species;
+                    cardTxt.innerHTML = 'Name: '+ element.gender + ' Gender: '+ element.species;
                     //Card Footer
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
@@ -247,8 +238,12 @@ function aboutUs(){
     content.classList.add("p2");
     header.innerHTML = "About Us";
     content.innerHTML = "We talk about us here";
+    var music = document.createElement("iframe");
+    music.allow = "autoplay";
+    music.src = "https://www.youtube.com/embed/i1GmxMTwUgs?start=69&autoplay=1&cc_load_policy=1"; 
     section.appendChild(header);
     section.appendChild(content);
+    section.appendChild(music);
 }
 
 function createNewAnimal(link)
