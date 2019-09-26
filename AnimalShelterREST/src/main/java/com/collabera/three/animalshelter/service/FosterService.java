@@ -42,7 +42,6 @@ public class FosterService
 	
 	public Foster getFosterById(String fosterId)
 	{
-		
 		try
 		{
 			Optional<Foster> fosterOp = fosterRepository.findById(Integer.parseInt(fosterId));
