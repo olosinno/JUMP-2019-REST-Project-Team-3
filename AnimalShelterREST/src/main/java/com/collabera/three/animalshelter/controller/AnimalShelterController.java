@@ -56,6 +56,24 @@ public class AnimalShelterController
 		{
 			return animalService.findAll();
 		}
+		
+		@GetMapping(path = "/getAnimal/{animalId}")
+		public Animal getAnimalById(@PathVariable String animalId) {
+			return animalService.getAnimalById(animalId);
+		}
+		
+		@PutMapping("/updateAnimal")
+		public String updateAnimal(@RequestBody Animal animal)
+		{
+			animalService.updateAnimal(animal);
+			return "Updated";
+		}
+		
+		@DeleteMapping("/deleteAnimal/{animalId}")
+		public void deleteAnimal(@PathVariable String animalId)
+		{
+			animalService.deleteAnimal(Integer.parseInt(animalId));
+		}
 	/* Above is Animal table controller mapping */
 
 	/* Below is Location table controller mapping */
@@ -93,7 +111,27 @@ public class AnimalShelterController
 	{
 		return staffService.findAll();
 	}
+	
+	@GetMapping(path = "/getStaff/{staffId}")
+	public Staff getStaffById(@PathVariable String staffId) {
+		return staffService.getStaffById(staffId);
+	}
+	
+	@PutMapping("/updateStaff")
+	public String updateStaff(@RequestBody Staff staff)
+	{
+		staffService.updateStaff(staff);
+		return "Updated";
+	}
+	
+	@DeleteMapping("/deleteStaff/{staffId}")
+	public void staffAnimal(@PathVariable String staffId)
+	{
+		staffService.deleteStaff(Integer.parseInt(staffId));
+	}
 	/* Above is Worker table controller mapping */
+	
+	
 	/* Below is Foster table controller mapping */
   
 		@Autowired

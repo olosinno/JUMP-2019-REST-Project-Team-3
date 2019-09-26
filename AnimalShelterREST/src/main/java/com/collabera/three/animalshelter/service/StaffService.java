@@ -1,10 +1,12 @@
 package com.collabera.three.animalshelter.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.collabera.three.animalshelter.model.Animal;
 import com.collabera.three.animalshelter.model.Staff;
 import com.collabera.three.animalshelter.repository.StaffRepository;
 
@@ -34,5 +36,48 @@ public class StaffService {
 		return staffRepository.findAll();
 	}
 
+	public Staff getStaffById(String staffId)
+	{
+		
+		try
+		{
+			Optional<Staff> staffOptional = staffRepository.findById(Integer.parseInt(staffId));
+			
+			if(staffOptional.isPresent())
+			{
+				return staffOptional.get();
+			}
+			
+		}catch(Exception e)
+		{
+			
+		}
+		
+		return null;
+	}
+	
+	public void updateStaff(Staff staff)
+	{
+		Optional<Staff> findById = staffRepository.findById(staff.getId());
+		
+		if(findById.isPresent())
+		{
+			Staff staffToUpdate = findById.get();
+			
+			staffToUpdate.setImagePath(staff.getImagePath());
+			staffToUpdate.setName(staff.getName());
+			staffToUpdate.setTitle(staff.getTitle());
 
+			staffRepository.save(staffToUpdate);
+		}
+		else
+		{
+			throw new IllegalArgumentException();
+		}
+	}
+	
+	public void deleteStaff(Integer id)
+	{
+		staffRepository.deleteById(id);
+	}
 }
