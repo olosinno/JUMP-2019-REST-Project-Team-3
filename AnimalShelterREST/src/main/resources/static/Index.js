@@ -204,3 +204,81 @@ function aboutUs(){
     section.appendChild(header);
     section.appendChild(content);
 }
+
+function createNewAnimal(link)
+{
+            // Gets element to add
+            var fosters = document.getElementById("pageLayout");
+
+            // Creates main modal div
+            var theModal = document.createElement("div");
+            theModal.className = "modal fade"
+            theModal.id = "myModal";
+
+            fosters.appendChild(theModal);
+
+            // Adds modal dialog
+            var theModalDialog = document.createElement("div");
+            theModalDialog.className = "modal-dialog modal-dialog-centered";
+
+            theModal.appendChild(theModalDialog);
+
+            // Adds modal content
+            var theModalContent = document.createElement("div");
+            theModalContent.className = "modal-content";
+
+            theModalDialog.appendChild(theModalContent);
+
+            // Adds modal header
+            var theModalHeader = document.createElement("div");
+            theModalHeader.className = "modal-header";
+
+            theModalContent.appendChild(theModalHeader);
+            
+            // Adds close button of header
+            var theModalHeaderButton = document.createElement("button");
+            theModalHeaderButton.type = "button";
+            theModalHeaderButton.className = "close";
+            theModalHeaderButton.setAttribute("data-dismiss", "modal")
+            theModalHeaderButton.innerHTML = "&times;";
+
+            theModalHeader.appendChild(theModalHeaderButton);
+        
+            // Adds the body to modal
+            var theModalBody = document.createElement("div");
+            theModalBody.className = "modal-body";
+            
+            theModalContent.appendChild(theModalBody);
+
+            // Adds the footer to modal
+            var theModalfooter = document.createElement("div");
+            theModalfooter.className = "modal-footer";
+
+            theModalContent.appendChild(theModalfooter);
+
+            // Adds the add button
+            var theModalfooterButton = document.createElement("div");
+            theModalfooterButton.type = "button";
+            theModalfooterButton.className = "btn btn-success";
+            theModalfooterButton.innerHTML = "Add";
+
+            theModalfooter.appendChild(theModalfooterButton);
+    switch(link)
+    {
+            case "foster":
+                // Adds H4 of header
+                var theModalHeaderH4 = document.createElement("h4");
+                theModalHeaderH4.className = "modal-title";
+                theModalHeaderH4.innerText = "Add New Foster!";
+
+                theModalHeader.prepend(theModalHeaderH4);
+
+                // Adds form to body
+                var theModalBodyForm = document.createElement("div");
+                theModalBodyForm
+                theModalBody.appendChild(theModalBodyForm);
+            break;
+    }
+
+    $("#myModal").modal()
+}
