@@ -7,7 +7,6 @@ function initialize(){
 
 function animalCards(){
     var animals = document.getElementById("animals");
-    var card = document.createElement("div");
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "/animalshelter/allAnimals", true);
     var cardDeck = document.createElement("div");
@@ -132,7 +131,7 @@ function staffCards(){
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
                     card.appendChild(cardTxt);
-                staff.appendChild(card);
+                cardDeck.appendChild(card);
             });    
         }
       };
@@ -159,6 +158,7 @@ function fosterCards(){
                 card.classList.add("rounded");
                 card.classList.add("bg-warning");
                 card.style.margin = "0.25rem";
+                card.style.width = "400px";
                 //Create Card Components
                     //Head
                     var cardHead = document.createElement("div");
@@ -176,7 +176,7 @@ function fosterCards(){
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
                     card.appendChild(cardTxt);
-                fosters.appendChild(card);
+                cardDeck.appendChild(card);
             });    
         }
       };
