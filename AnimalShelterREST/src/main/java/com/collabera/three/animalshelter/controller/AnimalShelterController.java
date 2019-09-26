@@ -101,7 +101,8 @@ public class AnimalShelterController
   
 	  	@PostMapping("/addFoster")
 		public String addNewFoster (@RequestParam String name, 
-				@RequestParam String animalType, @RequestParam String fosterDescription,
+				@RequestParam String animalType, 
+				@RequestParam String fosterDescription,
 				@RequestParam String estimatedDateOfBirth,
 				@RequestParam String imagePath)
 		{
@@ -128,7 +129,7 @@ public class AnimalShelterController
 			return "Updated";
 		}
 		
-		@DeleteMapping("/deleteFoster/{id}")
+		@DeleteMapping("/deleteFoster/{fosterId}")
 		public void deleteFoster(@PathVariable String fosterId)
 		{
 			fosterService.deleteFoster(Integer.parseInt(fosterId));
