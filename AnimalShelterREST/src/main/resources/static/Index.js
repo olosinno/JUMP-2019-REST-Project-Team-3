@@ -5,7 +5,7 @@ function initialize(){
     staffCards();
     fosterCards();
     //make about 
-    aboutUs();  
+    aboutUs()
 }
 
 function animalCards(){
@@ -30,6 +30,7 @@ function animalCards(){
     // topDiv.appendChild(cButton);
     animals.appendChild(topDiv);
     animals.appendChild(cardDeck);
+    var cardID = 0;
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(xhttp.responseText);
@@ -39,7 +40,10 @@ function animalCards(){
                 card.classList.add("card");
                 card.classList.add("rounded");
                 card.classList.add("bg-primary");
+                card.classList.add("invisible");
                 card.style.margin = "0.25rem";
+                card.id = cardID;
+                cardID++;
                 //Create Card Components
                     //Header
                     var cardHead = document.createElement("div");
@@ -53,13 +57,27 @@ function animalCards(){
                     cardImg.alt = "Animal Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
+                    if(element.image_path == '')cardImg.src = 'images/noImage.gif';
                     //Card Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
                     cardTxt.innerHTML = element.name + ' is a '+ element.gender + ' ' + element.breed + ' ' +  element.species + ' that is ' + element.age + ' years old. ';                    
-                    //Card Footer
+                    //Card Footer and buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
+                    var btnGroup = document.createElement("div");
+                    btnGroup.classList.add("btn-group");
+                        var update = document.createElement("button");
+                        update.innerHTML = "Update Animal";
+                        update.classList.add("btn");
+                        update.classList.add("btn-success");
+                        var del = document.createElement("button");
+                        del.innerHTML = "Delete Animal";
+                        del.classList.add("btn");
+                        del.classList.add("btn-secondary");
+                    btnGroup.appendChild(update);
+                    btnGroup.appendChild(del);
+                    cardFtr.appendChild(btnGroup);
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
@@ -67,6 +85,12 @@ function animalCards(){
                     card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
             });    
+        }
+        for (let index = 0; index < cardDeck.lastElementChild.id; index++) {
+            var displayCard = document.getElementById("index");
+            if (index < 4) {
+                displayCard.classList[3] = "visible";
+            }
         }
       };
     xhttp.send();
@@ -103,15 +127,31 @@ function locationCards(){
                     cardImg.classList.add("card-img-top");
                     cardImg.classList.add("card-body");
                     cardImg.src = element.image_path;
+                    console.log(element.image_path);
                     cardImg.alt = "Location Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
+                    if(element.image_path == '')cardImg.src = 'images/noImage.gif';
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
-                    //Card Footer
+                    cardTxt.innerHTML = element.addressNo + ' ' + element.street + '\r\n' + element.township + ' ' + element.state + ' ' + element.ZIP;
+                    //Card Footer and Buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
+                    var btnGroup = document.createElement("div");
+                    btnGroup.classList.add("btn-group");
+                        var update = document.createElement("button");
+                        update.innerHTML = "Update Location";
+                        update.classList.add("btn");
+                        update.classList.add("btn-success");
+                        var del = document.createElement("button");
+                        del.innerHTML = "Delete Location";
+                        del.classList.add("btn");
+                        del.classList.add("btn-secondary");
+                    btnGroup.appendChild(update);
+                    btnGroup.appendChild(del);
+                    cardFtr.appendChild(btnGroup);
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
@@ -158,19 +198,34 @@ function staffCards(){
                     cardImg.alt = "Staff Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
+                    if(element.image_path == '')cardImg.src = 'images/noImage.gif';
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
                     cardTxt.innerHTML = element.name + ' is a ' + element.title;
-                    //Card Footer
+                    //Card Footer and Buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
+                    var btnGroup = document.createElement("div");
+                    btnGroup.classList.add("btn-group");
+                        var update = document.createElement("button");
+                        update.innerHTML = "Update Staff";
+                        update.classList.add("btn");
+                        update.classList.add("btn-success");
+                        var del = document.createElement("button");
+                        del.innerHTML = "Delete Staff";
+                        del.classList.add("btn");
+                        del.classList.add("btn-secondary");
+                    btnGroup.appendChild(update);
+                    btnGroup.appendChild(del);
+                    cardFtr.appendChild(btnGroup);
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
                     card.appendChild(cardTxt);
                     card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
+
             });    
         }
       };
@@ -211,12 +266,26 @@ function fosterCards(){
                     cardImg.alt = "Foster Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
+                    if(element.image_path == '')cardImg.src = 'images/noImage.gif';
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
-                    //Card Footer
+                    //Card Footer and Buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
+                    var btnGroup = document.createElement("div");
+                    btnGroup.classList.add("btn-group");
+                        var update = document.createElement("button");
+                        update.innerHTML = "Update Foster";
+                        update.classList.add("btn");
+                        update.classList.add("btn-success");
+                        var del = document.createElement("button");
+                        del.innerHTML = "Delete Foster";
+                        del.classList.add("btn");
+                        del.classList.add("btn-secondary");
+                    btnGroup.appendChild(update);
+                    btnGroup.appendChild(del);
+                    cardFtr.appendChild(btnGroup);
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
@@ -229,21 +298,49 @@ function fosterCards(){
     xhttp.send();
 }
 
+function load() {
+    var file = new XMLHttpRequest();
+    file.open("GET", "/AboutUs.txt", true);
+    file.onreadystatechange = function() {
+      if (file.readyState === 4) {  // Makes sure the document is ready to parse
+        if (file.status === 200) {  // Makes sure it's found the file
+          text = file.responseText;
+          document.getElementById("aboutUs").innerHTML = text;
+        }
+      }
+    }
+}
+
 function aboutUs(){
     var section = document.getElementById("aboutUs");
+    section.classList.add("d-inline-flex");
     section.classList.add("d-flex");
     section.classList.add("flex-column");
     var header = document.createElement("h3");
     header.classList.add("p2");
-    var content = document.createElement("p");
-    content.classList.add("p2");
     header.innerHTML = "About Us";
-    content.innerHTML = "We talk about us here";
-    var music = document.createElement("iframe");
-    music.allow = "autoplay";
-    music.src = "https://www.youtube.com/embed/i1GmxMTwUgs?start=69&autoplay=1&cc_load_policy=1"; 
+    var txtFile = new XMLHttpRequest();
+    txtFile.open("GET", "/AboutUs.txt", true);
+    txtFile.onreadystatechange = function() {
+      if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.
+        if (txtFile.status === 200) {  // Makes sure it's found the file.
+          allText = txtFile.responseText; 
+          //lines = txtFile.responseText.split("\n"); // Will separate each line into an array
+          var content = document.createElement("p");
+          content.classList.add("p2");
+          content.innerText = txtFile.responseText;
+          console.log(content.innerHTML);
+          console.log(content.innerText);
+          section.appendChild(content);
+        }
+      }
+    }
+    txtFile.send(null);
+      var music = document.createElement("iframe");
+      music.allow = "autoplay";
+      music.src = "https://www.youtube.com/embed/i1GmxMTwUgs?start=69&mute=1&autoplay=1&cc_load_policy=1"; 
+      music.style.objectFit = "cover";
     section.appendChild(header);
-    section.appendChild(content);
     section.appendChild(music);
 }
 
@@ -658,7 +755,7 @@ function createNewAnimal(link)
                     
                     // Adds the Male to options
                     theModalBodyFormGroupSelect = document.createElement("option");
-                    theModalBodyFormGroupSelect.innerHTML = "Fale"
+                    theModalBodyFormGroupSelect.innerHTML = "Female"
                     theModalBodyFormGroupText.append(theModalBodyFormGroupSelect);
 
             // Adds the Image form------------------------------------------

@@ -33,43 +33,19 @@
                     <a class="dropdown-item" onclick="createNewAnimal('foster')" href="#">Add Foster</a>
                 </div>
                 </li>
-                 <!-- Update Dropdown -->
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Update Information
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Update Animal</a>
-                    <a class="dropdown-item" href="#">Update Shelter</a>
-                    <a class="dropdown-item" href="#">Update Staff</a>
-                    <a class="dropdown-item" href="#">Update Foster</a>
-                </div>
-                </li>
-                 <!-- Delete Dropdown -->
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Something Shouldn't Be Here?
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Delete Animal</a>
-                    <a class="dropdown-item" href="#">Delete Shelter</a>
-                    <a class="dropdown-item" href="#">Delete Staff</a>
-                    <a class="dropdown-item" href="#">Delete Foster</a>
-                </div>
-                </li>
             </ul>
         </nav>
         <!-- Page Content Below -->
-        <div id="pageLayout" class="d-flex row card text-center" style="padding-top: 5%">
+        <div id="pageLayout" class="d-flex row" style="padding-top: 5%">
             <!-- Cards Displayed on Left -->
-            <div id="cardGroup" class = "col-md-9 p2">
-                <div id="animals"></div>
-                <div id="locations"></div>
-                <div id="staff"></div>
-                <div id="fosters"></div>
+            <div id="cardGroup" class = "col-md-9 p2"> 
+                <div class = "text-center" id="animals"></div>
+                <div class = "text-center" id="locations"></div>
+                <div class = "text-center" id="staff"></div>
+                <div class = "text-center" id="fosters"></div>
             </div>
             <!-- About Us Displayed on Right -->
-            <div id="aboutUs" class="col-xs-3 p2"></div>
+            <div id="aboutUs" class="col-md-3 p2"></div>
         </div>
     </body>
 </html>
