@@ -57,6 +57,7 @@ function animalCards(){
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
                     if(cardImg.src == null || cardImg.src == '')cardImg.src = 'images/noImage.gif';
+                    cardImg.onerror = this.src = 'images/noImage.gif';
                     //Card Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -124,7 +125,7 @@ function locationCards(){
                     cardImg.alt = "Location Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
-                    if(cardImg.src == null || cardImg.src == '')cardImg.src = 'images/noImage.gif';
+                    if(element.image_path == null || element.image_path == '')cardImg.src = 'images/noImage.gif';
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -259,7 +260,8 @@ function fosterCards(){
                     cardImg.alt = "Foster Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
-                    if(cardImg.src == null || cardImg.src == '')cardImg.src = 'images/noImage.gif';
+                    if(element.imagePath == null || element.imagePath == '')cardImg.src = 'images/noImage.gif';
+                    cardImg.onerror = "this.onerror=null;this.src='/images/noImage';"
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
