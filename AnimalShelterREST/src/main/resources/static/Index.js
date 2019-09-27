@@ -75,6 +75,7 @@ function animalCards(){
                         del.innerHTML = "Delete Animal";
                         del.classList.add("btn");
                         del.classList.add("btn-secondary");
+                        del.setAttribute("onclick", "deleteAnimal(" + element.id + ")");
                     btnGroup.appendChild(update);
                     btnGroup.appendChild(del);
                     cardFtr.appendChild(btnGroup);
@@ -143,6 +144,7 @@ function locationCards(){
                         del.innerHTML = "Delete Location";
                         del.classList.add("btn");
                         del.classList.add("btn-secondary");
+                        del.setAttribute("onclick", "deleteShelter(" + element.id + ")");
                     btnGroup.appendChild(update);
                     btnGroup.appendChild(del);
                     cardFtr.appendChild(btnGroup);
@@ -210,6 +212,7 @@ function staffCards(){
                         del.innerHTML = "Delete Staff";
                         del.classList.add("btn");
                         del.classList.add("btn-secondary");
+                        del.setAttribute("onclick", "deleteStaff(" + element.id + ")");
                     btnGroup.appendChild(update);
                     btnGroup.appendChild(del);
                     cardFtr.appendChild(btnGroup);
@@ -279,6 +282,7 @@ function fosterCards(){
                         del.innerHTML = "Delete Foster";
                         del.classList.add("btn");
                         del.classList.add("btn-secondary");
+                        del.setAttribute("onclick", "deleteFoster(" + element.id + ")");
                     btnGroup.appendChild(update);
                     btnGroup.appendChild(del);
                     cardFtr.appendChild(btnGroup);
@@ -292,6 +296,86 @@ function fosterCards(){
         }
       };
     xhttp.send();
+}
+
+function deleteAnimal(id)
+{
+    var link = "/animalshelter/deleteAnimal/" + id;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("DELETE", link, true);
+
+    xhttp.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var animals = document.getElementById("animals");
+            animals.innerHTML = "";
+            animalCards();
+        }
+      };
+
+    xhttp.send(null);
+}
+
+function deleteStaff(id)
+{
+    var link = "/animalshelter/deleteStaff/" + id;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("DELETE", link, true);
+
+    xhttp.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var staff = document.getElementById("staff");
+            staff.innerHTML = "";
+            staffCards();
+        }
+      };
+
+    xhttp.send(null);
+}
+
+function deleteShelter(id)
+{
+    var link = "/animalshelter/deleteShelter/" + id;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("DELETE", link, true);
+
+    xhttp.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var locations = document.getElementById("locations");
+            locations.innerHTML = "";
+            locationCards();
+        }
+      };
+
+    xhttp.send(null);
+}
+
+function deleteFoster(id)
+{
+    var link = "/animalshelter/deleteFoster/" + id;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("DELETE", link, true);
+
+    xhttp.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var fosters = document.getElementById("fosters");
+            fosters.innerHTML = "";
+            fosterCards();
+        }
+      };
+
+    xhttp.send(null);
 }
 
 
