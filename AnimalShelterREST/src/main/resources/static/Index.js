@@ -40,7 +40,7 @@ function animalCards(){
                 card.classList.add("card");
                 card.classList.add("rounded");
                 card.classList.add("bg-primary");
-                card.classList.add("invisible");
+                card.style.display = "none";
                 card.style.margin = "0.25rem";
                 card.id = cardID;
                 cardID++;
@@ -89,7 +89,7 @@ function animalCards(){
         for (let index = 0; index < cardDeck.lastElementChild.id; index++) {
             var displayCard = document.getElementById("index");
             if (index < 4) {
-                displayCard.classList[3] = "visible";
+                displayCard.style.display = "block";
             }
         }
       };
