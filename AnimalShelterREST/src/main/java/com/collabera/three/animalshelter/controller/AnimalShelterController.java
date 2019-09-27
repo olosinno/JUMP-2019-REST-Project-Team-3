@@ -3,6 +3,7 @@ package com.collabera.three.animalshelter.controller;
 import java.time.LocalDate;
 
 import javax.persistence.Id;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -167,7 +168,7 @@ public class AnimalShelterController
 	  		fosterService.addFoster(name, animalType, fosterDescription, estimatedDateOfBirth, imagePath);
 			return "Saved";
 		}
-		
+	  	
 		@GetMapping("/allFoster")
 		public Iterable<Foster> getAllFosters()
 		{
@@ -191,5 +192,49 @@ public class AnimalShelterController
 		public void deleteFoster(@PathVariable String fosterId)
 		{
 			fosterService.deleteFoster(Integer.parseInt(fosterId));
+		}
+		
+	  	@PostMapping("/addFoster2")
+	  	public String addNewFoster2(@RequestBody @Valid Foster aFoster)
+	  	{
+	  		System.out.println(aFoster.getAnimalName());
+	  		fosterService.addFoster(aFoster.getAnimalName(), aFoster.getAnimalType(), aFoster.getFosterDescription(), aFoster.getEstimatedDateOfBirth().toString(), aFoster.getImagePath());
+	  		return "Added";
+	  	}
+	  	
+	  	@PostMapping("/addStaff2")
+		public String addNewStaff2 (@RequestBody @Valid Staff aStaff)
+		{
+	  		System.out.println(aStaff.getName());
+	  		staffService.addStaff(aStaff.getImagePath(), aStaff.getName(), aStaff.getTitle());
+			return "Added";
+		}
+	  	
+	  	@PostMapping(path = "/addShelter2")
+		public @ResponseBody String addNewShelter2(@RequestBody @Valid Shelter aShelter)
+		{
+	  		service.addShelter(aShelter.getShelter_name(), 
+	  				aShelter.getAddressNo(), 
+	  				aShelter.getStreet(), 
+	  				aShelter.getTownship(), 
+	  				aShelter.getState(), 
+	  				aShelter.getZIP(), 
+	  				aShelter.getImage_path());
+	  		return "Saved";
+	  	}
+	  	
+	  	@PostMapping(path = "/addAnimal2")
+		public @ResponseBody String addNewAnimal2 (@RequestBody @Valid Animal aAnimal)
+		{
+	  		System.out.println(aAnimal.getName());
+	  		
+			animalService.addAnimal(aAnimal.getImagePath(),
+					aAnimal.getName(),
+					aAnimal.getGender(),
+					aAnimal.getSpecies(),
+					aAnimal.getBreed(), 
+					aAnimal.getSize(),
+					aAnimal.getAge());
+			return "Saved";
 		}
 }

@@ -30,6 +30,7 @@ function animalCards(){
     // topDiv.appendChild(cButton);
     animals.appendChild(topDiv);
     animals.appendChild(cardDeck);
+    var cardID = 0;
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(xhttp.responseText);
@@ -39,7 +40,10 @@ function animalCards(){
                 card.classList.add("card");
                 card.classList.add("rounded");
                 card.classList.add("bg-primary");
+                card.classList.add("invisible");
                 card.style.margin = "0.25rem";
+                card.id = cardID;
+                cardID++;
                 //Create Card Components
                     //Header
                     var cardHead = document.createElement("div");
@@ -81,6 +85,12 @@ function animalCards(){
                     card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
             });    
+        }
+        for (let index = 0; index < cardDeck.lastElementChild.id; index++) {
+            var displayCard = document.getElementById("index");
+            if (index < 4) {
+                displayCard.classList[3] = "visible";
+            }
         }
       };
     xhttp.send();
@@ -215,6 +225,7 @@ function staffCards(){
                     card.appendChild(cardTxt);
                     card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
+
             });    
         }
       };
@@ -334,6 +345,124 @@ function aboutUs(){
     section.appendChild(music);
 }
 
+function addNewAnimal()
+{
+    var sendData = {
+    "age": document.getElementById("formAge").value,
+    "breed": document.getElementById("formBreed").value,
+    "gender": document.getElementById("formGender").value,
+    "image_path": document.getElementById("formImage").value,
+    "name": document.getElementById("formName").value,
+    "size": document.getElementById("formSize").value,
+    "species": document.getElementById("formSpecies").value,
+    };
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("Post", "/animalshelter/addAnimal2", true);
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+
+    xhttp.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var animals = document.getElementById("animals");
+            animals.innerHTML = "";
+            animalCards();
+            
+            $("#myModal").modal('toggle');
+        }
+      };
+
+    xhttp.send(JSON.stringify(sendData));
+}
+
+function addNewShelter()
+{
+    var sendData = {
+    "zip": document.getElementById("formZip").value,
+    "address_no": document.getElementById("formAddress").value,
+    "image_path": document.getElementById("formImage").value,
+    "shelter_name": document.getElementById("formName").value,
+    "state": document.getElementById("formState").value,
+    "street": document.getElementById("formStreet").value,
+    "township": document.getElementById("formTownship").value,
+    };
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("Post", "/animalshelter/addShelter2", true);
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+
+    xhttp.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var locations = document.getElementById("locations");
+            locations.innerHTML = "";
+            locationCards();
+            
+            $("#myModal").modal('toggle');
+        }
+      };
+
+    xhttp.send(JSON.stringify(sendData));
+}
+
+function addNewStaff()
+{
+    var sendData = {
+    "name": document.getElementById("formName").value,
+    "title": document.getElementById("formTitle").value,
+    "imagePath": document.getElementById("formImage").value
+    };
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("Post", "/animalshelter/addStaff2", true);
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+
+    xhttp.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var staff = document.getElementById("staff");
+            staff.innerHTML = "";
+            staffCards();
+            
+            $("#myModal").modal('toggle');
+        }
+      };
+
+    xhttp.send(JSON.stringify(sendData));
+}
+
+function addNewFoster()
+{
+    var sendData = {
+    "animalName": document.getElementById("formName").value,
+    "animalType": document.getElementById("formType").value,
+    "estimatedDateOfBirth": document.getElementById("formDate").value,
+    "fosterDescription": document.getElementById("formDescription").value,
+    "imagePath": document.getElementById("formImage").value
+    };
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("Post", "/animalshelter/addFoster2", true);
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+
+    xhttp.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var fosters = document.getElementById("fosters");
+            fosters.innerHTML = "";
+            fosterCards();
+            
+            $("#myModal").modal('toggle');
+        }
+      };
+
+    xhttp.send(JSON.stringify(sendData));
+}
+
 function createNewAnimal(link)
 {
     var testExists = document.getElementById("myModal");
@@ -394,6 +523,7 @@ function createNewAnimal(link)
 
     // Adds the add button
     var theModalfooterButton = document.createElement("div");
+    theModalfooterButton.id = "theAddButton"
     theModalfooterButton.type = "button";
     theModalfooterButton.className = "btn btn-success";
     theModalfooterButton.innerHTML = "Add";
@@ -434,6 +564,8 @@ function createNewAnimal(link)
                 var theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
                 theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formName";
+                theModalBodyFormGroupText.required = true;
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
             
             // Adds the Description form------------------------------------------
@@ -456,6 +588,8 @@ function createNewAnimal(link)
                 theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
                 theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formDescription";
+                theModalBodyFormGroupText.required = true;
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
 
             // Adds the Type form ------------------------------------
@@ -478,6 +612,32 @@ function createNewAnimal(link)
                 theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
                 theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formType";
+                theModalBodyFormGroupText.required = true;
+                theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+            // Adds the Image form ------------------------------------
+                // Creates input group
+                theModalBodyFormGroup1 = document.createElement("div");
+                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyForm.append(theModalBodyFormGroup1);
+
+                theModalBodyFormGroup2 = document.createElement("div");
+                theModalBodyFormGroup2.className = "input-group-prepend";
+                theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                // Creates input group span
+                theModalBodyFormGroupSpan = document.createElement("span");
+                theModalBodyFormGroupSpan.className = "input-group-text";
+                theModalBodyFormGroupSpan.innerHTML = "Image Link";
+                theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                // Adds the text to group
+                theModalBodyFormGroupText = document.createElement("input");
+                theModalBodyFormGroupText.type = "text";
+                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formImage";
+                theModalBodyFormGroupText.required = true;
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
 
             // Adds the Date form-------------------------------------------
@@ -501,7 +661,12 @@ function createNewAnimal(link)
                 theModalBodyFormGroupText.type = "text";
                 theModalBodyFormGroupText.placeholder = "YYYY-MM-DD"
                 theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formDate";
+                theModalBodyFormGroupText.required = true;
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+                
+                theModalfooterButton.setAttribute("onclick", "addNewFoster()");
         break;
 
         case 'animal':
@@ -536,6 +701,7 @@ function createNewAnimal(link)
                 var theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
                 theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formAge";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
             
             // Adds the Breed form------------------------------------------
@@ -558,6 +724,7 @@ function createNewAnimal(link)
                 theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
                 theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formBreed";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
 
             // Adds the Gender form ------------------------------------
@@ -579,6 +746,7 @@ function createNewAnimal(link)
                 // Adds the Select to group
                 theModalBodyFormGroupText = document.createElement("select");
                 theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formGender";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
 
                     // Adds the Male to options
@@ -590,6 +758,100 @@ function createNewAnimal(link)
                     theModalBodyFormGroupSelect = document.createElement("option");
                     theModalBodyFormGroupSelect.innerHTML = "Female"
                     theModalBodyFormGroupText.append(theModalBodyFormGroupSelect);
+
+            // Adds the Image form------------------------------------------
+                // Creates input group
+                theModalBodyFormGroup1 = document.createElement("div");
+                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyForm.append(theModalBodyFormGroup1);
+
+                theModalBodyFormGroup2 = document.createElement("div");
+                theModalBodyFormGroup2.className = "input-group-prepend";
+                theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                // Creates input group span
+                theModalBodyFormGroupSpan = document.createElement("span");
+                theModalBodyFormGroupSpan.className = "input-group-text";
+                theModalBodyFormGroupSpan.innerHTML = "Image";
+                theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                // Adds the text to group
+                theModalBodyFormGroupText = document.createElement("input");
+                theModalBodyFormGroupText.type = "text";
+                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formImage";
+                theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+                
+            // Adds the Name form------------------------------------------
+                // Creates input group
+                theModalBodyFormGroup1 = document.createElement("div");
+                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyForm.append(theModalBodyFormGroup1);
+
+                theModalBodyFormGroup2 = document.createElement("div");
+                theModalBodyFormGroup2.className = "input-group-prepend";
+                theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                // Creates input group span
+                theModalBodyFormGroupSpan = document.createElement("span");
+                theModalBodyFormGroupSpan.className = "input-group-text";
+                theModalBodyFormGroupSpan.innerHTML = "Name";
+                theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                // Adds the text to group
+                theModalBodyFormGroupText = document.createElement("input");
+                theModalBodyFormGroupText.type = "text";
+                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formName";
+                theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+            // Adds the Size form------------------------------------------
+                // Creates input group
+                theModalBodyFormGroup1 = document.createElement("div");
+                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyForm.append(theModalBodyFormGroup1);
+
+                theModalBodyFormGroup2 = document.createElement("div");
+                theModalBodyFormGroup2.className = "input-group-prepend";
+                theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                // Creates input group span
+                theModalBodyFormGroupSpan = document.createElement("span");
+                theModalBodyFormGroupSpan.className = "input-group-text";
+                theModalBodyFormGroupSpan.innerHTML = "Breed";
+                theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                // Adds the text to group
+                theModalBodyFormGroupText = document.createElement("input");
+                theModalBodyFormGroupText.type = "text";
+                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formSize";
+                theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+            // Adds the Species form------------------------------------------
+                // Creates input group
+                theModalBodyFormGroup1 = document.createElement("div");
+                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyForm.append(theModalBodyFormGroup1);
+
+                theModalBodyFormGroup2 = document.createElement("div");
+                theModalBodyFormGroup2.className = "input-group-prepend";
+                theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                // Creates input group span
+                theModalBodyFormGroupSpan = document.createElement("span");
+                theModalBodyFormGroupSpan.className = "input-group-text";
+                theModalBodyFormGroupSpan.innerHTML = "Species";
+                theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                // Adds the text to group
+                theModalBodyFormGroupText = document.createElement("input");
+                theModalBodyFormGroupText.type = "text";
+                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formSpecies";
+                theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+                theModalfooterButton.setAttribute("onclick", "addNewAnimal()");
         break;
 
         case 'shelter':
@@ -624,6 +886,7 @@ function createNewAnimal(link)
                 var theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
                 theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formName";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
             
             // Adds the Address Number form------------------------------------------
@@ -645,7 +908,8 @@ function createNewAnimal(link)
                 // Adds the text to group
                 theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
-                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.className = "form-control";
+                theModalBodyFormGroupText.id = "formAddress";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
 
             // Adds the Street form ------------------------------------
@@ -667,7 +931,8 @@ function createNewAnimal(link)
                 // Adds the text to group
                 theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
-                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.className = "form-control";
+                theModalBodyFormGroupText.id = "formStreet";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
 
             // Adds the Town form-------------------------------------------
@@ -689,29 +954,8 @@ function createNewAnimal(link)
                 // Adds the text to group
                 theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
-                theModalBodyFormGroupText.className = "form-control"
-                theModalBodyFormGroup1.append(theModalBodyFormGroupText);
-        
-            // Adds the Town form-------------------------------------------
-                // Creates input group
-                theModalBodyFormGroup1 = document.createElement("div");
-                theModalBodyFormGroup1.className = "input-group mb-3";
-                theModalBodyForm.append(theModalBodyFormGroup1);
-
-                theModalBodyFormGroup2 = document.createElement("div");
-                theModalBodyFormGroup2.className = "input-group-prepend";
-                theModalBodyFormGroup1.append(theModalBodyFormGroup2);
-
-                // Creates input group span
-                theModalBodyFormGroupSpan = document.createElement("span");
-                theModalBodyFormGroupSpan.className = "input-group-text";
-                theModalBodyFormGroupSpan.innerHTML = "Town";
-                theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
-
-                // Adds the text to group
-                theModalBodyFormGroupText = document.createElement("input");
-                theModalBodyFormGroupText.type = "text";
-                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.className = "form-control";
+                theModalBodyFormGroupText.id = "formTownship";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
 
             // Adds the Zip form-------------------------------------------
@@ -733,7 +977,8 @@ function createNewAnimal(link)
                 // Adds the text to group
                 theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
-                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.className = "form-control";
+                theModalBodyFormGroupText.id = "formZip";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
 
             // Adds the State form-------------------------------------------
@@ -755,8 +1000,34 @@ function createNewAnimal(link)
                 // Adds the text to group
                 theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
-                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.className = "form-control";
+                theModalBodyFormGroupText.id = "formState";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+            // Adds the Image form-------------------------------------------
+                // Creates input group
+                theModalBodyFormGroup1 = document.createElement("div");
+                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyForm.append(theModalBodyFormGroup1);
+
+                theModalBodyFormGroup2 = document.createElement("div");
+                theModalBodyFormGroup2.className = "input-group-prepend";
+                theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                // Creates input group span
+                theModalBodyFormGroupSpan = document.createElement("span");
+                theModalBodyFormGroupSpan.className = "input-group-text";
+                theModalBodyFormGroupSpan.innerHTML = "Image Path";
+                theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                // Adds the text to group
+                theModalBodyFormGroupText = document.createElement("input");
+                theModalBodyFormGroupText.type = "text";
+                theModalBodyFormGroupText.className = "form-control";
+                theModalBodyFormGroupText.id = "formImage";
+                theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+                
+                theModalfooterButton.setAttribute("onclick", "addNewShelter()");
         break;
 
         case 'staff':
@@ -790,7 +1061,8 @@ function createNewAnimal(link)
                 // Adds the text to group
                 var theModalBodyFormGroupText = document.createElement("input");
                 theModalBodyFormGroupText.type = "text";
-                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.id = "formName";
+                theModalBodyFormGroupText.className = "form-control";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
             
             // Adds the Title form------------------------------------------
@@ -811,9 +1083,35 @@ function createNewAnimal(link)
 
                 // Adds the text to group
                 theModalBodyFormGroupText = document.createElement("input");
+                theModalBodyFormGroupText.id = "formTitle";
                 theModalBodyFormGroupText.type = "text";
-                theModalBodyFormGroupText.className = "form-control"
+                theModalBodyFormGroupText.className = "form-control";
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+
+            // Adds the Image form-------------------------------------------
+                // Creates input group
+                theModalBodyFormGroup1 = document.createElement("div");
+                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyForm.append(theModalBodyFormGroup1);
+
+                theModalBodyFormGroup2 = document.createElement("div");
+                theModalBodyFormGroup2.className = "input-group-prepend";
+                theModalBodyFormGroup1.append(theModalBodyFormGroup2);
+
+                // Creates input group span
+                theModalBodyFormGroupSpan = document.createElement("span");
+                theModalBodyFormGroupSpan.className = "input-group-text";
+                theModalBodyFormGroupSpan.innerHTML = "Image";
+                theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
+
+                // Adds the text to group
+                theModalBodyFormGroupText = document.createElement("input");
+                theModalBodyFormGroupText.type = "text";
+                theModalBodyFormGroupText.className = "form-control";
+                theModalBodyFormGroupText.id="formImage";
+                theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+                
+                theModalfooterButton.setAttribute("onclick", "addNewStaff()");
         break;
     }
 
