@@ -71,7 +71,7 @@ public class Shelter {
 	public Integer getZIP() {
 		return ZIP;
 	}
-	public void setZIP(Integer zIP) {
-		ZIP = zIP;
+	public void setZIP(Integer ZIP) {
+		ZIP = ZIP;
 	}
 }
