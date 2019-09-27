@@ -18,6 +18,7 @@ public class Shelter {
 	private String township;
 	private String state;
 	private Integer ZIP;
+
 	private String image_path;
 
 	/**
@@ -68,10 +69,11 @@ public class Shelter {
 	public void setState(String state) {
 		this.state = state;
 	}
+	
 	public Integer getZIP() {
 		return ZIP;
 	}
 	public void setZIP(Integer ZIP) {
-		ZIP = ZIP;
+		this.ZIP = ZIP;
 	}
 }
