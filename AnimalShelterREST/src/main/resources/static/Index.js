@@ -58,9 +58,22 @@ function animalCards(){
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
                     cardTxt.innerHTML = element.name + ' is a '+ element.gender + ' ' + element.breed + ' ' +  element.species + ' that is ' + element.age + ' years old. ';                    
-                    //Card Footer
+                    //Card Footer and buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
+                    var btnGroup = document.createElement("div");
+                    btnGroup.classList.add("btn-group");
+                        var update = document.createElement("button");
+                        update.innerHTML = "Update Animal";
+                        update.classList.add("btn");
+                        update.classList.add("btn-success");
+                        var del = document.createElement("button");
+                        del.innerHTML = "Delete Animal";
+                        del.classList.add("btn");
+                        del.classList.add("btn-secondary");
+                    btnGroup.appendChild(update);
+                    btnGroup.appendChild(del);
+                    cardFtr.appendChild(btnGroup);
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
@@ -113,9 +126,22 @@ function locationCards(){
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
                     cardTxt.innerHTML = element.addressNo + ' ' + element.street + '\r\n' + element.township + ' ' + element.state + ' ' + element.ZIP;
-                    //Card Footer
+                    //Card Footer and Buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
+                    var btnGroup = document.createElement("div");
+                    btnGroup.classList.add("btn-group");
+                        var update = document.createElement("button");
+                        update.innerHTML = "Update Location";
+                        update.classList.add("btn");
+                        update.classList.add("btn-success");
+                        var del = document.createElement("button");
+                        del.innerHTML = "Delete Location";
+                        del.classList.add("btn");
+                        del.classList.add("btn-secondary");
+                    btnGroup.appendChild(update);
+                    btnGroup.appendChild(del);
+                    cardFtr.appendChild(btnGroup);
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
@@ -167,9 +193,22 @@ function staffCards(){
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
                     cardTxt.innerHTML = element.name + ' is a ' + element.title;
-                    //Card Footer
+                    //Card Footer and Buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
+                    var btnGroup = document.createElement("div");
+                    btnGroup.classList.add("btn-group");
+                        var update = document.createElement("button");
+                        update.innerHTML = "Update Staff";
+                        update.classList.add("btn");
+                        update.classList.add("btn-success");
+                        var del = document.createElement("button");
+                        del.innerHTML = "Delete Staff";
+                        del.classList.add("btn");
+                        del.classList.add("btn-secondary");
+                    btnGroup.appendChild(update);
+                    btnGroup.appendChild(del);
+                    cardFtr.appendChild(btnGroup);
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
@@ -220,9 +259,22 @@ function fosterCards(){
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
-                    //Card Footer
+                    //Card Footer and Buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
+                    var btnGroup = document.createElement("div");
+                    btnGroup.classList.add("btn-group");
+                        var update = document.createElement("button");
+                        update.innerHTML = "Update Foster";
+                        update.classList.add("btn");
+                        update.classList.add("btn-success");
+                        var del = document.createElement("button");
+                        del.innerHTML = "Delete Foster";
+                        del.classList.add("btn");
+                        del.classList.add("btn-secondary");
+                    btnGroup.appendChild(update);
+                    btnGroup.appendChild(del);
+                    cardFtr.appendChild(btnGroup);
                     //Write Card
                     card.appendChild(cardHead);
                     card.appendChild(cardImg);
@@ -275,7 +327,7 @@ function aboutUs(){
     txtFile.send(null);
       var music = document.createElement("iframe");
       music.allow = "autoplay";
-      music.src = "https://www.youtube.com/embed/i1GmxMTwUgs?start=69&autoplay=1&cc_load_policy=1"; 
+      music.src = "https://www.youtube.com/embed/i1GmxMTwUgs?start=69&mute=1&autoplay=1&cc_load_policy=1"; 
       music.style.objectFit = "cover";
     section.appendChild(header);
     section.appendChild(music);
