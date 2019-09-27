@@ -135,7 +135,7 @@ function locationCards(){
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
-                    cardTxt.innerHTML = element.addressNo + ' ' + element.street + '\r\n' + element.township + ' ' + element.state + ' ' + element.ZIP;
+                    cardTxt.innerHTML = element.addressNo + ' ' + element.street + '<br>' + element.township + ' ' + element.state + ' ' + element.ZIP;
                     //Card Footer and Buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
