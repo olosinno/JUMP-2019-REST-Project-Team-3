@@ -30,6 +30,7 @@ function animalCards(){
     // topDiv.appendChild(cButton);
     animals.appendChild(topDiv);
     animals.appendChild(cardDeck);
+    var cardID = 0;
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(xhttp.responseText);
@@ -39,7 +40,10 @@ function animalCards(){
                 card.classList.add("card");
                 card.classList.add("rounded");
                 card.classList.add("bg-primary");
+                card.classList.add("invisible");
                 card.style.margin = "0.25rem";
+                card.id = cardID;
+                cardID++;
                 //Create Card Components
                     //Header
                     var cardHead = document.createElement("div");
@@ -81,6 +85,12 @@ function animalCards(){
                     card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
             });    
+        }
+        for (let index = 0; index < cardDeck.lastElementChild.id; index++) {
+            var displayCard = document.getElementById("index");
+            if (index < 4) {
+                displayCard.classList[3] = "visible";
+            }
         }
       };
     xhttp.send();
@@ -215,6 +225,7 @@ function staffCards(){
                     card.appendChild(cardTxt);
                     card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
+
             });    
         }
       };
