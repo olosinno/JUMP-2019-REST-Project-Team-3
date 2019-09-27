@@ -213,6 +213,8 @@ public class AnimalShelterController
 	  	@PostMapping(path = "/addShelter2")
 		public @ResponseBody String addNewShelter2(@RequestBody @Valid Shelter aShelter)
 		{
+	  		System.out.println(aShelter.getZIP());
+	  		
 	  		service.addShelter(aShelter.getShelter_name(), 
 	  				aShelter.getAddressNo(), 
 	  				aShelter.getStreet(), 

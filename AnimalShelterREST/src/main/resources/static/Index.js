@@ -373,7 +373,7 @@ function addNewShelter()
 {
     var sendData = {
     "zip": document.getElementById("formZip").value,
-    "address_no": document.getElementById("formAddress").value,
+    "addressNo": document.getElementById("formAddress").value,
     "image_path": document.getElementById("formImage").value,
     "shelter_name": document.getElementById("formName").value,
     "state": document.getElementById("formState").value,
@@ -811,7 +811,7 @@ function createNewAnimal(link)
                 // Creates input group span
                 theModalBodyFormGroupSpan = document.createElement("span");
                 theModalBodyFormGroupSpan.className = "input-group-text";
-                theModalBodyFormGroupSpan.innerHTML = "Breed";
+                theModalBodyFormGroupSpan.innerHTML = "Size";
                 theModalBodyFormGroup2.append(theModalBodyFormGroupSpan);
 
                 // Adds the text to group
