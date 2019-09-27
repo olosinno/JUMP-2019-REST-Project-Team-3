@@ -22,13 +22,15 @@ public class StaffService {
 		this.staffRepository = staffRepository;
 	}
 	
-	public void addStaff(Integer id, String imagePath, String name, String title) {
+	public void addStaff(String imagePath, String name, String title)
+	{
 		Staff tempStaff = new Staff();
 		
 		tempStaff.setImagePath(imagePath);
 		tempStaff.setName(name);
 		tempStaff.setTitle(title);
 		
+		staffRepository.save(tempStaff);
 	}
 	
 	public List<Staff> findAll()
