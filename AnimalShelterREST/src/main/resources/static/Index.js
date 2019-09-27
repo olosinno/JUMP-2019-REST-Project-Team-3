@@ -231,17 +231,20 @@ function fosterCards(){
 
 function aboutUs(){
     var section = document.getElementById("aboutUs");
-    section.classList.add("d-flex");
-    section.classList.add("flex-column");
+    //section.classList.add("d-inline-flex");
+    //section.classList.add("flex-column");
     var header = document.createElement("h3");
-    header.classList.add("p2");
+    //header.classList.add("p2");
     var content = document.createElement("p");
-    content.classList.add("p2");
+    //content.classList.add("p2");
     header.innerHTML = "About Us";
     content.innerHTML = "We talk about us here";
     var music = document.createElement("iframe");
-    music.allow = "autoplay";
-    music.src = "https://www.youtube.com/embed/i1GmxMTwUgs?start=69&autoplay=1&cc_load_policy=1"; 
+      music.allow = "autoplay";
+      music.src = "https://www.youtube.com/embed/i1GmxMTwUgs?start=69&autoplay=1&cc_load_policy=1"; 
+      music.style.objectFit = "cover";
+//    music.width = "200";
+//    music.height = "200";
     section.appendChild(header);
     section.appendChild(content);
     section.appendChild(music);
@@ -501,7 +504,7 @@ function createNewAnimal(link)
                     
                     // Adds the Male to options
                     theModalBodyFormGroupSelect = document.createElement("option");
-                    theModalBodyFormGroupSelect.innerHTML = "Fale"
+                    theModalBodyFormGroupSelect.innerHTML = "Female"
                     theModalBodyFormGroupText.append(theModalBodyFormGroupSelect);
         break;
 
