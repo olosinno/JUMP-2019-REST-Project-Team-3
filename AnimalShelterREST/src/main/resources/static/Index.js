@@ -5,7 +5,7 @@ function initialize(){
     staffCards();
     fosterCards();
     //make about 
-    aboutUs();  
+    aboutUs()
 }
 
 function animalCards(){
@@ -287,6 +287,19 @@ function fosterCards(){
     xhttp.send();
 }
 
+function load() {
+    var file = new XMLHttpRequest();
+    file.open("GET", "/AboutUs.txt", true);
+    file.onreadystatechange = function() {
+      if (file.readyState === 4) {  // Makes sure the document is ready to parse
+        if (file.status === 200) {  // Makes sure it's found the file
+          text = file.responseText;
+          document.getElementById("aboutUs").innerHTML = text;
+        }
+      }
+    }
+}
+
 function aboutUs(){
     var section = document.getElementById("aboutUs");
     section.classList.add("d-inline-flex");
@@ -294,16 +307,29 @@ function aboutUs(){
     section.classList.add("flex-column");
     var header = document.createElement("h3");
     header.classList.add("p2");
-    var content = document.createElement("p");
-    content.classList.add("p2");
     header.innerHTML = "About Us";
-    content.innerHTML = "We talk about us here";
-    var music = document.createElement("iframe");
+    var txtFile = new XMLHttpRequest();
+    txtFile.open("GET", "/AboutUs.txt", true);
+    txtFile.onreadystatechange = function() {
+      if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.
+        if (txtFile.status === 200) {  // Makes sure it's found the file.
+          allText = txtFile.responseText; 
+          //lines = txtFile.responseText.split("\n"); // Will separate each line into an array
+          var content = document.createElement("p");
+          content.classList.add("p2");
+          content.innerText = txtFile.responseText;
+          console.log(content.innerHTML);
+          console.log(content.innerText);
+          section.appendChild(content);
+        }
+      }
+    }
+    txtFile.send(null);
+      var music = document.createElement("iframe");
       music.allow = "autoplay";
       music.src = "https://www.youtube.com/embed/i1GmxMTwUgs?start=69&mute=1&autoplay=1&cc_load_policy=1"; 
       music.style.objectFit = "cover";
     section.appendChild(header);
-    section.appendChild(content);
     section.appendChild(music);
 }
 
