@@ -125,7 +125,7 @@ function locationCards(){
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
-                    cardTxt.innerHTML = element.addressNo + ' ' + element.street + '\r\n' + element.township + ' ' + element.state + ' ' + element.ZIP;
+                    cardTxt.innerHTML = element.addressNo + ' ' + element.street + '\r\n' + element.township + ' ' + element.state + ' ' + element.zip;
                     //Card Footer and Buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
@@ -259,6 +259,7 @@ function fosterCards(){
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
+                    cardTxt.innerHTML = element.description;                    
                     //Card Footer and Buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
