@@ -344,7 +344,7 @@ function addNewAnimal()
     "age": document.getElementById("formAge").value,
     "breed": document.getElementById("formBreed").value,
     "gender": document.getElementById("formGender").value,
-    "image_path": document.getElementById("formImage").value,
+    "imagePath": document.getElementById("formImage").value,
     "name": document.getElementById("formName").value,
     "size": document.getElementById("formSize").value,
     "species": document.getElementById("formSpecies").value,
