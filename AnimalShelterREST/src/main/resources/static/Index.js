@@ -56,7 +56,7 @@ function animalCards(){
                     //Card Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
-                    cardTxt.innerHTML = 'Name: '+ element.gender + ' Gender: '+ element.species;
+                    cardTxt.innerHTML = element.name + ' is a '+ element.gender + ' ' + element.breed + ' ' +  element.species + ' that is ' + element.age + ' years old. ';                    
                     //Card Footer
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
@@ -161,6 +161,7 @@ function staffCards(){
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
+                    cardTxt.innerHTML = element.name + ' is a ' + element.title;
                     //Card Footer
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
