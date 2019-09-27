@@ -263,7 +263,7 @@ function fosterCards(){
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
-                    cardTxt.innerHTML = element.description;                    
+                    cardTxt.innerHTML = element.fosterDescription;                    
                     //Card Footer and Buttons
                     var cardFtr = document.createElement("div");
                     cardFtr.classList.add("card-footer");
