@@ -5,7 +5,7 @@ function initialize(){
     staffCards();
     fosterCards();
     //make about 
-    aboutUs()
+    aboutUs();
 }
 
 function animalCards(){
@@ -14,13 +14,26 @@ function animalCards(){
     //Open AJAX read from Controller Mappings
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "/animalshelter/allAnimals", true);
+    //Make the Carousel for Cards
+    var carousel = document.createElement("div");
+    carousel.classList.add("carousel");
+    carousel.classList.add("slide");
+    carousel.setAttribute("data-ride", "carousel"); 
+    carousel.id = "myCarousel";
+        //Inner Carousel
+        var inCarousel = document.createElement("div");
+        inCarousel.classList.add("carousel-inner");
+        inCarousel.classList.add("row");
+        inCarousel.classList.add("w-100");
+        inCarousel.classList.add("mx-auto");
+    carousel.appendChild(inCarousel);
     //Card Deck Contains Cards
     var cardDeck = document.createElement("div");
     cardDeck.classList.add("card-group");
     //Card Deck Header
     var header = document.createElement("h3");
     header.innerHTML = "Featured Animals";
-    header.classList.add("font-weight-bold");
+    header.classList.add("font-weight-bold"); 
     header.classList.add("p-2");
     var topDiv = document.createElement("div");
     topDiv.classList.add("d-flex");
@@ -35,6 +48,10 @@ function animalCards(){
             data = JSON.parse(xhttp.responseText);
             data.forEach(element => {
                 //Create Card
+                var carosItem = document.createElement("div");
+                carosItem.classList.add("carousel-item");
+                carosItem.classList.add("col-md-3");
+                carosItem.classList.add("active");
                 var card = document.createElement("div");
                 card.classList.add("card");
                 card.classList.add("rounded");
@@ -84,6 +101,7 @@ function animalCards(){
                     card.appendChild(cardImg);
                     card.appendChild(cardTxt);
                     card.appendChild(cardFtr);
+                carosItem.appendChild(card);
                 cardDeck.appendChild(card);
             });    
         }
@@ -1182,3 +1200,43 @@ function createNewAnimal(link)
 
     $("#myModal").modal()
 }
+
+(function ($) {
+  "use strict";
+  // Auto-scroll
+  $('#myCarousel').carousel({
+    interval: 5000
+  });
+
+  // Control buttons
+  $('.next').click(function () {
+    $('.carousel').carousel('next');
+    return false;
+  });
+  $('.prev').click(function () {
+    $('.carousel').carousel('prev');
+    return false;
+  });
+
+  // On carousel scroll
+  $("#myCarousel").on("slide.bs.carousel", function (e) {
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 3;
+    var totalItems = $(".carousel-item").length;
+    if (idx >= totalItems - (itemsPerSlide - 1)) {
+      var it = itemsPerSlide -
+          (totalItems - idx);
+      for (var i = 0; i < it; i++) {
+        // append slides to end 
+        if (e.direction == "left") {
+          $(
+            ".carousel-item").eq(i).appendTo(".carousel-inner");
+        } else {
+          $(".carousel-item").eq(0).appendTo(".carousel-inner");
+        }
+      }
+    }
+  });
+})
+(jQuery);
