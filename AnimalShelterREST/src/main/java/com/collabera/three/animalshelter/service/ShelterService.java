@@ -21,7 +21,7 @@ public class ShelterService {
 	}
 	
 	public void addShelter(String shelter_name, Integer addressNo, String street, String township, String state, 
-			Integer ZIP, String image_path)
+			Integer zip, String image_path)
 	{
 		Shelter template = new Shelter();
 		
@@ -30,7 +30,7 @@ public class ShelterService {
 		template.setStreet(street);
 		template.setTownship(township);
 		template.setState(state);
-		template.setZIP(ZIP);
+		template.setZIP(zip);
 		template.setImage_path(image_path);
 		
 		shelterRepository.save(template);
