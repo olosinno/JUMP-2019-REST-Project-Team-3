@@ -21,7 +21,7 @@ public class AnimalService {
 		this.animalRepository = animalRepository;
 	}
 	
-	public void addAnimal(Integer id, String imagePath, String name, String gender, String species, String breed, String size, int age) {
+	public void addAnimal(String imagePath, String name, String gender, String species, String breed, String size, int age) {
 		Animal tempAnimal = new Animal();
 		
 		tempAnimal.setImagePath(imagePath);
@@ -31,6 +31,8 @@ public class AnimalService {
 		tempAnimal.setBreed(breed);
 		tempAnimal.setSize(size);
 		tempAnimal.setAge(age);
+		
+		animalRepository.save(tempAnimal);
 	}
 	
 	public List<Animal> findAll()
