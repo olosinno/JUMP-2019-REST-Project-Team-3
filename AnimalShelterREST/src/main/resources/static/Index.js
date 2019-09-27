@@ -27,7 +27,6 @@ function animalCards(){
     topDiv.classList.add("flex-row");
     //Add Card Deck to Placeholder
     topDiv.appendChild(header);
-    // topDiv.appendChild(cButton);
     animals.appendChild(topDiv);
     animals.appendChild(cardDeck);
     var cardID = 0;
@@ -40,7 +39,7 @@ function animalCards(){
                 card.classList.add("card");
                 card.classList.add("rounded");
                 card.classList.add("bg-primary");
-                card.style.display = "none";
+                // card.style.display = "none";
                 card.style.margin = "0.25rem";
                 card.id = cardID;
                 cardID++;
@@ -57,7 +56,7 @@ function animalCards(){
                     cardImg.alt = "Animal Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
-                    if(element.image_path == '')cardImg.src = 'images/noImage.gif';
+                    if(element.image_path == null)cardImg.src = 'images/noImage.gif';
                     //Card Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -85,12 +84,6 @@ function animalCards(){
                     card.appendChild(cardFtr);
                 cardDeck.appendChild(card);
             });    
-        }
-        for (let index = 0; index < cardDeck.lastElementChild.id; index++) {
-            var displayCard = document.getElementById("index");
-            if (index < 4) {
-                displayCard.style.display = "block";
-            }
         }
       };
     xhttp.send();
@@ -131,7 +124,7 @@ function locationCards(){
                     cardImg.alt = "Location Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
-                    if(element.image_path == '')cardImg.src = 'images/noImage.gif';
+                    if(element.image_path == null)cardImg.src = 'images/noImage.gif';
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -198,7 +191,7 @@ function staffCards(){
                     cardImg.alt = "Staff Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
-                    if(element.image_path == '')cardImg.src = 'images/noImage.gif';
+                    if(element.image_path == null)cardImg.src = 'images/noImage.gif';
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
@@ -266,7 +259,7 @@ function fosterCards(){
                     cardImg.alt = "Foster Image";
                     cardImg.style.objectFit = "cover";
                     cardImg.style.maxHeight = "300px";
-                    if(element.image_path == '')cardImg.src = 'images/noImage.gif';
+                    if(element.image_path == null)cardImg.src = 'images/noImage.gif';
                     //Text
                     var cardTxt = document.createElement("p");
                     cardTxt.classList.add("card-text");
