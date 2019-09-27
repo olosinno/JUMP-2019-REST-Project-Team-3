@@ -292,18 +292,6 @@ function fosterCards(){
     xhttp.send();
 }
 
-function load() {
-    var file = new XMLHttpRequest();
-    file.open("GET", "/AboutUs.txt", true);
-    file.onreadystatechange = function() {
-      if (file.readyState === 4) {  // Makes sure the document is ready to parse
-        if (file.status === 200) {  // Makes sure it's found the file
-          text = file.responseText;
-          document.getElementById("aboutUs").innerHTML = text;
-        }
-      }
-    }
-}
 
 function aboutUs(){
     var section = document.getElementById("aboutUs");
@@ -323,8 +311,6 @@ function aboutUs(){
           var content = document.createElement("p");
           content.classList.add("p2");
           content.innerText = txtFile.responseText;
-          console.log(content.innerHTML);
-          console.log(content.innerText);
           section.appendChild(content);
         }
       }
