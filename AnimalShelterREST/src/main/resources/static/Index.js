@@ -18,18 +18,20 @@ function animalCards(){
     var carousel = document.createElement("div");
     carousel.classList.add("carousel");
     carousel.classList.add("slide");
+    carousel.classList.add("carousel-multi-item");
     carousel.setAttribute("data-ride", "carousel"); 
     carousel.id = "myCarousel";
         //Inner Carousel
         var inCarousel = document.createElement("div");
         inCarousel.classList.add("carousel-inner");
-        inCarousel.classList.add("row");
-        inCarousel.classList.add("w-100");
-        inCarousel.classList.add("mx-auto");
+        //inCarousel.classList.add("row");
+        //inCarousel.classList.add("w-100");
+        //inCarousel.classList.add("mx-auto");
+        inCarousel.setAttribute("role", "listbox");
     carousel.appendChild(inCarousel);
     //Card Deck Contains Cards
-    var cardDeck = document.createElement("div");
-    cardDeck.classList.add("card-group");
+    var cardDeck; //= document.createElement("div");
+    // cardDeck.classList.add("card-group");
     //Card Deck Header
     var header = document.createElement("h3");
     header.innerHTML = "Featured Animals";
@@ -41,22 +43,70 @@ function animalCards(){
     //Add Card Deck to Placeholder
     topDiv.appendChild(header);
     animals.appendChild(topDiv);
-    animals.appendChild(cardDeck);
+    animals.appendChild(carousel);
+
+    //Carousel Controls
+    var carControls = document.createElement("div");
+    carControls.classList.add("controls-top");
+    var leftB = document.createElement("a");
+    leftB.classList.add("btn-floating");
+    leftB.classList.add("carousel-control-prev");
+    leftB.setAttribute("role", "button");
+    leftB.setAttribute("href", "#myCarousel");
+    leftB.setAttribute("data-slide", "prev");
+    leftB.innerHTML = "<span class='carousel-control-prev-icon'></span>";
+    var rightB = document.createElement("a");
+    rightB.classList.add("btn-floatng");
+    rightB.classList.add("carousel-control-next");
+    rightB.setAttribute("role", "button");
+    rightB.setAttribute("href", "#myCarousel");
+    rightB.setAttribute("data-slide", "next");
+    rightB.innerHTML = "<span class='carousel-control-next-icon'></span>";
+    carControls.appendChild(leftB);
+    carControls.appendChild(rightB);
+    carousel.appendChild(carControls);
+
+    //Create Carousel Indicators
+    var carIndic = document.createElement("ol");
+    carIndic.classList.add("carousel-indicators");
+
+    //Create Active Carousel Card Set
+    var carosItem; //= document.createElement("div");
+        // carosItem.classList.add("carousel-item");
+        // carosItem.classList.add("active");
     var cardID = 0;
+    var groupID = 0;
+    var newSet = false;
+    //Read JSON
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(xhttp.responseText);
+            //Loop Through Animals
             data.forEach(element => {
+                //Set Card Deck and Carousel Items to group of 4
+                if (cardID % 4 == 0) {
+                    newSet = true;
+                    //Create Active Carousel Card Set
+                    carosItem = document.createElement("div");
+                    carosItem.classList.add("carousel-item");
+                    carosItem.id = groupID;
+                    groupID++;
+                    console.log(groupID);
+                    //
+                    cardDeck = document.createElement("div");
+                    cardDeck.classList.add("card-group");
+                    cardDeck.classList.add("container-fluid");
+                    if (cardID < 4) {
+                        carosItem.classList.add("active");
+                    }
+                }
                 //Create Card
-                var carosItem = document.createElement("div");
-                carosItem.classList.add("carousel-item");
-                carosItem.classList.add("col-md-3");
-                carosItem.classList.add("active");
                 var card = document.createElement("div");
                 card.classList.add("card");
                 card.classList.add("rounded");
                 card.classList.add("bg-primary");
-                // card.style.display = "none";
+                card.classList.add("col-3");
+                //card.classList.add("p2");
                 card.style.margin = "0.25rem";
                 card.id = cardID;
                 cardID++;
@@ -101,8 +151,12 @@ function animalCards(){
                     card.appendChild(cardImg);
                     card.appendChild(cardTxt);
                     card.appendChild(cardFtr);
-                carosItem.appendChild(card);
                 cardDeck.appendChild(card);
+                if(newSet){
+                    carosItem.appendChild(cardDeck);
+                    inCarousel.appendChild(carosItem);
+                    newSet = false;
+                }
             });    
         }
       };
