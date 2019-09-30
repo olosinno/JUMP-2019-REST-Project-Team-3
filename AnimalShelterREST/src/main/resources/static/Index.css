@@ -36,9 +36,9 @@ div.sticky{
   padding: 2% 2% 2% 2%;
 }
 
-h2,h3{
+h1,h2,h3{
   text-align: center;
-  justify-items: center;
+  justify-content: center;
 }
 
 .card-header{

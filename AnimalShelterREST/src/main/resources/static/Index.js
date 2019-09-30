@@ -47,13 +47,14 @@ function animalCards(){
     header.innerHTML = "Featured Animals";
     header.classList.add("font-weight-bold"); 
     header.classList.add("p-2");
+    header.classList.add("d-flex");
     var topDiv = document.createElement("div");
     topDiv.classList.add("d-flex");
     topDiv.classList.add("flex-row");
 
     //Add Card Deck to Placeholder
-    topDiv.appendChild(header);
-    animals.appendChild(topDiv);
+    animals.appendChild(header);
+    //animals.appendChild(topDiv);
     animals.appendChild(carousel);
 
     //Carousel Controls
@@ -199,8 +200,8 @@ function locationCards(){
     topDiv.classList.add("flex-row");
 
     //Add Deck to Placeholder
-    topDiv.appendChild(header);
-    locations.appendChild(topDiv);
+    locations.appendChild(header);
+    //locations.appendChild(topDiv);
     locations.appendChild(carousel);
 
     //Carousel Controls
@@ -349,8 +350,8 @@ function staffCards(){
     topDiv.classList.add("flex-row");
 
     //Add Card Deck to Placeholder
-    topDiv.appendChild(header);
-    staff.appendChild(topDiv);
+    staff.appendChild(header);
+    //staff.appendChild(topDiv);
     staff.appendChild(carousel);
 
     //Carousel Controls
@@ -498,8 +499,8 @@ function fosterCards(){
     topDiv.classList.add("flex-row");
 
     //Add Card Deck to Placeholder
-    topDiv.appendChild(header);
-    fosters.appendChild(topDiv);
+    fosters.appendChild(header);
+    //fosters.appendChild(topDiv);
     fosters.appendChild(carousel);
 
     //Carousel Controls
