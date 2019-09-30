@@ -29,3 +29,9 @@
 .bg-dark{
   color: whitesmoke;
 }
+
+div.sticky{
+  position: fixed;
+  right: 0;
+  padding: 2% 2% 2% 2%;
+}
