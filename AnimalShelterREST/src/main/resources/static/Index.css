@@ -26,7 +26,7 @@
   color: red;
 }
 
-.bg-dark{
+.bg-dark,.bg-primary{
   color: whitesmoke;
 }
 
@@ -34,4 +34,13 @@ div.sticky{
   position: fixed;
   right: 0;
   padding: 2% 2% 2% 2%;
+}
+
+h2,h3{
+  text-align: center;
+  justify-items: center;
+}
+
+.card-header{
+  font-weight: bolder;
 }
