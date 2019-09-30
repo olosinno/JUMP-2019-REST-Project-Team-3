@@ -925,7 +925,7 @@ function createNewAnimal(link)
             // Adds the Name form-------------------------------------------
                 // Creates input group
                 var theModalBodyFormGroup1 = document.createElement("div");
-                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
                 theModalBodyForm.append(theModalBodyFormGroup1);
 
                 var theModalBodyFormGroup2 = document.createElement("div");
@@ -945,6 +945,18 @@ function createNewAnimal(link)
                 theModalBodyFormGroupText.id = "formName";
                 theModalBodyFormGroupText.required = true;
                 theModalBodyFormGroup1.append(theModalBodyFormGroupText);
+                
+                //Validation -- input is valid
+                var theModalBodyFormGroupValidationP = document.createElement("div");
+                theModalBodyFormGroupValidationP.className="valid-feedback";
+                theModalBodyFormGroupValidationP.innerHTML="Valid.";
+                theModalBodyFormGroup1.append(theModalBodyFormGroupValidationP);
+                
+                //Validation -- input is invalid
+                var theModalBodyFormGroupValidationN = document.createElement("div");
+                theModalBodyFormGroupValidationN.className="invalid-feedback";
+                theModalBodyFormGroupValidationN.innerHTML="Enter the foster's name!";
+                theModalBodyFormGroup1.append(theModalBodyFormGroupValidationN);
             
             // Adds the Description form------------------------------------------
                 // Creates input group
