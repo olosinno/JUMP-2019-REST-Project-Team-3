@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.collabera.three.animalshelter.model.Animal;
-import com.collabera.three.animalshelter.model.Foster;
 import com.collabera.three.animalshelter.repository.AnimalRepository;
 
 @Service
-public class AnimalService {
-	
+public class AnimalService 
+{
 	@Autowired
 	private AnimalRepository animalRepository;
 	
@@ -21,7 +20,8 @@ public class AnimalService {
 		this.animalRepository = animalRepository;
 	}
 	
-	public void addAnimal(String imagePath, String name, String gender, String species, String breed, String size, int age) {
+	public void addAnimal(String imagePath, String name, String gender, String species, String breed, String size, int age)
+	{
 		Animal tempAnimal = new Animal();
 		
 		tempAnimal.setImagePath(imagePath);
@@ -89,5 +89,4 @@ public class AnimalService {
 	{
 		animalRepository.deleteById(id);
 	}
-
 }

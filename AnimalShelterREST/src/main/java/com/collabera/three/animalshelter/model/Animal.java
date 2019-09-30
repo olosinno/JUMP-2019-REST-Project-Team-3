@@ -5,92 +5,97 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.*;
-
-
 @Entity
-public class Animal {
+public class Animal
+{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Integer id;
-	
 	private  String imagePath;
-
 	private String name;
-	
 	private String gender;
-
 	private String species;
-	
 	private String breed;
-	
 	private String size;
-	
 	private int age;
 	
-	public Integer getId() {
+	public Integer getId()
+	{
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Integer id)
+	{
 		this.id = id;
 	}
 	
-	public String getImagePath() {
+	public String getImagePath()
+	{
 		return imagePath;
 	}
 
-	public void setImagePath(String imagePath) {
+	public void setImagePath(String imagePath)
+	{
 		this.imagePath = imagePath;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 	
-	public String getGender() {
+	public String getGender()
+	{
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(String gender) 
+	{
 		this.gender = gender;
 	}
 
-	public String getSpecies() {
+	public String getSpecies() 
+	{
 		return species;
 	}
 
-	public void setSpecies(String species) {
+	public void setSpecies(String species) 
+	{
 		this.species = species;
 	}
 
-	public String getBreed() {
+	public String getBreed()
+	{
 		return breed;
 	}
 
-	public void setBreed(String breed) {
+	public void setBreed(String breed) 
+	{
 		this.breed = breed;
 	}
 
-	public String getSize() {
+	public String getSize() 
+	{
 		return size;
 	}
 
-	public void setSize(String size) {
+	public void setSize(String size)
+	{
 		this.size = size;
 	}
 
-	public int getAge() {
+	public int getAge() 
+	{
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(int age)
+	{
 		this.age = age;
 	}
-	
-
 }

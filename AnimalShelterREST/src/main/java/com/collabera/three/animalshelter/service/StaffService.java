@@ -6,14 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.collabera.three.animalshelter.model.Animal;
 import com.collabera.three.animalshelter.model.Staff;
 import com.collabera.three.animalshelter.repository.StaffRepository;
 
 
 @Service
-public class StaffService {
-	
+public class StaffService
+{
 	@Autowired
 	private StaffRepository staffRepository;
 	
