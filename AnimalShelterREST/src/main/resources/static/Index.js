@@ -740,7 +740,7 @@ function addNewAnimal()
     };
 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("Post", "/animalshelter/addAnimal2", true);
+    xhttp.open("Post", "/animalshelter/addAnimal", true);
     xhttp.setRequestHeader('Content-Type', 'application/json');
 
     xhttp.onreadystatechange = function()
@@ -771,7 +771,7 @@ function addNewShelter()
     };
 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("Post", "/animalshelter/addShelter2", true);
+    xhttp.open("Post", "/animalshelter/addShelter", true);
     xhttp.setRequestHeader('Content-Type', 'application/json');
 
     xhttp.onreadystatechange = function()
@@ -798,7 +798,7 @@ function addNewStaff()
     };
 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("Post", "/animalshelter/addStaff2", true);
+    xhttp.open("Post", "/animalshelter/addStaff", true);
     xhttp.setRequestHeader('Content-Type', 'application/json');
 
     xhttp.onreadystatechange = function()
@@ -827,7 +827,7 @@ function addNewFoster()
     };
 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("Post", "/animalshelter/addFoster2", true);
+    xhttp.open("Post", "/animalshelter/addFoster", true);
     xhttp.setRequestHeader('Content-Type', 'application/json');
 
     xhttp.onreadystatechange = function()

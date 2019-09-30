@@ -6,75 +6,97 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Shelter {
-
+public class Shelter
+{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	
 	private String shelter_name;
 	private Integer addressNo;
 	private String street;
 	private String township;
 	private String state;
 	private Integer zip;
-
 	private String image_path;
 
-	/**
-	 * @return the image_path
-	 */
-	public String getImage_path() {
+	
+	public String getImage_path()
+	{
 		return image_path;
 	}
-	/**
-	 * @param image_path the image_path to set
-	 */
-	public void setImage_path(String image_path) {
+
+	public void setImage_path(String image_path)
+	{
 		this.image_path = image_path;
 	}
-	public Integer getId() {
+	
+	public Integer getId()
+	{
 		return id;
 	}
-	public void setId(Integer id) {
+	
+	public void setId(Integer id)
+	{
 		this.id = id;
 	}
-	public String getShelter_name() {
+	
+	public String getShelter_name()
+	{
 		return shelter_name;
 	}
-	public void setShelter_name(String shelter_name) {
+	
+	public void setShelter_name(String shelter_name)
+	{
 		this.shelter_name = shelter_name;
 	}
-	public Integer getAddressNo() {
+	
+	public Integer getAddressNo()
+	{
 		return addressNo;
 	}
-	public void setAddressNo(Integer addressNo) {
+	
+	public void setAddressNo(Integer addressNo)
+	{
 		this.addressNo = addressNo;
 	}
-	public String getStreet() {
+	
+	public String getStreet()
+	{
 		return street;
 	}
-	public void setStreet(String street) {
+	
+	public void setStreet(String street)
+	{
 		this.street = street;
 	}
-	public String getTownship() {
+	
+	public String getTownship()
+	{
 		return township;
 	}
-	public void setTownship(String township) {
+	
+	public void setTownship(String township)
+	{
 		this.township = township;
 	}
-	public String getState() {
+	
+	public String getState()
+	{
 		return state;
 	}
-	public void setState(String state) {
+	
+	public void setState(String state)
+	{
 		this.state = state;
 	}
 	
-	public Integer getZIP() {
+	public Integer getZIP()
+	{
 		return zip;
 	}
   
-	public void setZIP(Integer zip) {
+	public void setZIP(Integer zip)
+	{
 		this.zip = zip;
 	}
 }
