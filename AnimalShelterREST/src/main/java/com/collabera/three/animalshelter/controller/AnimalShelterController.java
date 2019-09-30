@@ -43,12 +43,18 @@ public class AnimalShelterController
 	 	@Autowired
 		private AnimalService animalService;
 	 	
-	  	@PostMapping(path = "/addAnimal")
-		public @ResponseBody String addNewAnimal (@RequestParam String imagePath, 
-				@RequestParam String name, @RequestParam String gender,
-				@RequestParam String species, @RequestParam String breed, 
-				@RequestParam String size, @RequestParam int age)
+	  	@PostMapping(path = "/addAnimal2")
+		public @ResponseBody String addNewAnimal2 (@RequestBody @Valid Animal aAnimal)
 		{
+	  		System.out.println(aAnimal.getName());
+	  		
+			animalService.addAnimal(aAnimal.getImagePath(),
+					aAnimal.getName(),
+					aAnimal.getGender(),
+					aAnimal.getSpecies(),
+					aAnimal.getBreed(), 
+					aAnimal.getSize(),
+					aAnimal.getAge());
 			return "Saved";
 		}
 		
@@ -82,15 +88,20 @@ public class AnimalShelterController
 	ShelterService service;
 	private ShelterRepo shelterRepo;
 
-  	@PostMapping(path = "/addShelter")
-	public @ResponseBody String addNewShelter (@RequestParam String image_path, @RequestParam String shelter_name,
-			@RequestParam Integer addressNo, @RequestParam String street, 
-			@RequestParam String township, @RequestParam String state,
-			@RequestParam Integer ZIP)
+  	@PostMapping(path = "/addShelter2")
+	public @ResponseBody String addNewShelter2(@RequestBody @Valid Shelter aShelter)
 	{
-  		service.addShelter(shelter_name, addressNo, street, township, state, ZIP, image_path);
+  		System.out.println(aShelter.getZIP());
+  		
+  		service.addShelter(aShelter.getShelter_name(), 
+  				aShelter.getAddressNo(), 
+  				aShelter.getStreet(), 
+  				aShelter.getTownship(), 
+  				aShelter.getState(), 
+  				aShelter.getZIP(), 
+  				aShelter.getImage_path());
   		return "Saved";
-  		}
+  	}
 
 	@GetMapping("/getShelter/{shelterid}")
 	public Shelter getShelterById(@PathVariable String shelterid)
@@ -119,12 +130,12 @@ public class AnimalShelterController
 	@Autowired
 	private StaffService staffService;
 
-  	@PostMapping("/addStaff")
-	public String addNewStaff (@RequestParam String name, 
-			@RequestParam String imagePath, 
-			@RequestParam String title)
+  	@PostMapping("/addStaff2")
+	public String addNewStaff2 (@RequestBody @Valid Staff aStaff)
 	{
-		return "Saved";
+  		System.out.println(aStaff.getName());
+  		staffService.addStaff(aStaff.getImagePath(), aStaff.getName(), aStaff.getTitle());
+		return "Added";
 	}
 	
 	@GetMapping("/allStaff")
@@ -201,42 +212,4 @@ public class AnimalShelterController
 	  		fosterService.addFoster(aFoster.getAnimalName(), aFoster.getAnimalType(), aFoster.getFosterDescription(), aFoster.getEstimatedDateOfBirth().toString(), aFoster.getImagePath());
 	  		return "Added";
 	  	}
-	  	
-	  	@PostMapping("/addStaff2")
-		public String addNewStaff2 (@RequestBody @Valid Staff aStaff)
-		{
-	  		System.out.println(aStaff.getName());
-	  		staffService.addStaff(aStaff.getImagePath(), aStaff.getName(), aStaff.getTitle());
-			return "Added";
-		}
-	  	
-	  	@PostMapping(path = "/addShelter2")
-		public @ResponseBody String addNewShelter2(@RequestBody @Valid Shelter aShelter)
-		{
-	  		System.out.println(aShelter.getZIP());
-	  		
-	  		service.addShelter(aShelter.getShelter_name(), 
-	  				aShelter.getAddressNo(), 
-	  				aShelter.getStreet(), 
-	  				aShelter.getTownship(), 
-	  				aShelter.getState(), 
-	  				aShelter.getZIP(), 
-	  				aShelter.getImage_path());
-	  		return "Saved";
-	  	}
-	  	
-	  	@PostMapping(path = "/addAnimal2")
-		public @ResponseBody String addNewAnimal2 (@RequestBody @Valid Animal aAnimal)
-		{
-	  		System.out.println(aAnimal.getName());
-	  		
-			animalService.addAnimal(aAnimal.getImagePath(),
-					aAnimal.getName(),
-					aAnimal.getGender(),
-					aAnimal.getSpecies(),
-					aAnimal.getBreed(), 
-					aAnimal.getSize(),
-					aAnimal.getAge());
-			return "Saved";
-		}
 }
