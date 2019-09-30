@@ -926,11 +926,7 @@ function createNewAnimal(link)
             // Adds the Name form-------------------------------------------
                 // Creates input group
                 var theModalBodyFormGroup1 = document.createElement("div");
-<<<<<<< HEAD
                 theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
-=======
-                theModalBodyFormGroup1.className = "input-group mb-3 was-validated"; // adds .was-validated parent BootStrap class to element
->>>>>>> origin
                 theModalBodyForm.append(theModalBodyFormGroup1);
 
                 var theModalBodyFormGroup2 = document.createElement("div");
