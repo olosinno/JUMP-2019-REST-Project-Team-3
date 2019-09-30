@@ -140,6 +140,7 @@ function animalCards(){
                         update.innerHTML = "Update Animal";
                         update.classList.add("btn");
                         update.classList.add("btn-success");
+                        update.setAttribute("onclick", "updateAnimal(" + element.id + ")");
                         var del = document.createElement("button");
                         del.innerHTML = "Delete Animal";
                         del.classList.add("btn");
