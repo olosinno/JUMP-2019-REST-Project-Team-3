@@ -489,7 +489,7 @@ function fosterCards(){
     var header = document.createElement("h3");
     header.innerHTML = "Foster Animals";
     header.classList.add("font-weight-bold");
-        header.classList.add("p-2");
+    header.classList.add("p-2");
     var topDiv = document.createElement("div");
     topDiv.classList.add("d-flex");
     topDiv.classList.add("flex-row");
