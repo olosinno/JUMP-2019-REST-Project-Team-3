@@ -13,17 +13,11 @@ public class Foster
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	
 	private String animalName;
-	
 	private String animalType;
-
 	private LocalDate estimatedDateOfBirth;
-	
 	private LocalDate fosterStart;
-	
 	private String fosterDescription;
-
 	private String imagePath;
 
 	public Integer getId()

@@ -6,12 +6,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.collabera.three.animalshelter.model.Foster;
 import com.collabera.three.animalshelter.model.Shelter;
 import com.collabera.three.animalshelter.repository.ShelterRepo;
 
 @Service
-public class ShelterService {
+public class ShelterService
+{
 	@Autowired
 	private ShelterRepo shelterRepository;
 
@@ -40,6 +40,7 @@ public class ShelterService {
 	{
 		return shelterRepository.findAll();
 	}
+	
 	public Shelter getShelterById(String shelterid)
 	{
 		try
@@ -47,9 +48,14 @@ public class ShelterService {
 			Optional<Shelter> ShelterOpt = shelterRepository.findById(Integer.parseInt(shelterid));
 			if(ShelterOpt.isPresent()) return ShelterOpt.get();
 		}
-		catch(Exception e) { }
+		catch(Exception e) 
+		{
+			
+		}
+		
 		return null;
 	}
+	
 	public void updateShelter(Shelter shelter)
 	{
 		Optional<Shelter> findById = shelterRepository.findById(shelter.getId());
@@ -71,9 +77,9 @@ public class ShelterService {
 			throw new IllegalArgumentException();
 		}
 	}
+	
 	public void deleteShelter(Integer id)
 	{
 		shelterRepository.deleteById(id);
 	}
-
 }
