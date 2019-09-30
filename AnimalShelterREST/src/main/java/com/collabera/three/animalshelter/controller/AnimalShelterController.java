@@ -91,6 +91,12 @@ public class AnimalShelterController
 			
 			return "Saved";
 	  	}
+	  	
+	  	@GetMapping(path = "/allShelters")
+		public Iterable<Shelter> getAllShelters()
+		{
+			return service.findAll();
+		}
 	
 		@GetMapping("/getShelter/{shelterid}")
 		public Shelter getShelterById(@PathVariable String shelterid)
@@ -98,17 +104,13 @@ public class AnimalShelterController
 			return service.getShelterById(shelterid);
 		}
 		
-	  	@GetMapping(path = "/allShelters")
-		public Iterable<Shelter> getAllShelters()
-		{
-			return service.findAll();
-		}
 	  	@PutMapping(path = "/updateShelter")
 	  	public String updateShelter(@RequestBody Shelter shelter)
 	  	{
 	  		service.updateShelter(shelter);
 	  		return "Updated";
 	  	}
+	  	
 	  	@DeleteMapping("/deleteShelter/{shelterid}")
 		public void deleteShelter(@PathVariable String shelterid)
 		{
@@ -125,7 +127,10 @@ public class AnimalShelterController
 	  	@PostMapping("/addStaff")
 		public String addNewStaff (@RequestBody @Valid Staff aStaff)
 		{
-	  		staffService.addStaff(aStaff.getImagePath(), aStaff.getName(), aStaff.getTitle());
+	  		staffService.addStaff(aStaff.getImagePath(),
+	  				aStaff.getName(),
+	  				aStaff.getTitle());
+	  		
 			return "Added";
 		}
 		
@@ -161,6 +166,18 @@ public class AnimalShelterController
   
 		@Autowired
 		private FosterService fosterService;
+		
+	  	@PostMapping("/addFoster")
+	  	public String addNewFoster(@RequestBody @Valid Foster aFoster)
+	  	{
+	  		fosterService.addFoster(aFoster.getAnimalName(),
+	  				aFoster.getAnimalType(), 
+	  				aFoster.getFosterDescription(),
+	  				aFoster.getEstimatedDateOfBirth().toString(), 
+	  				aFoster.getImagePath());
+	  		
+	  		return "Added";
+	  	}
 	  	
 		@GetMapping("/allFoster")
 		public Iterable<Foster> getAllFosters()
@@ -186,11 +203,4 @@ public class AnimalShelterController
 		{
 			fosterService.deleteFoster(Integer.parseInt(fosterId));
 		}
-		
-	  	@PostMapping("/addFoster")
-	  	public String addNewFoster(@RequestBody @Valid Foster aFoster)
-	  	{
-	  		fosterService.addFoster(aFoster.getAnimalName(), aFoster.getAnimalType(), aFoster.getFosterDescription(), aFoster.getEstimatedDateOfBirth().toString(), aFoster.getImagePath());
-	  		return "Added";
-	  	}
 }
