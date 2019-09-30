@@ -115,8 +115,10 @@ public class AnimalShelterController
 			service.deleteShelter(Integer.parseInt(shelterid));
 		}
 	
-		/* Above is Location table controller mapping */
-		/* Below is Worker table controller mapping */
+	/* Above is Location table controller mapping */
+	  	
+	/* Below is Worker table controller mapping */
+	  	
 		@Autowired
 		private StaffService staffService;
 	
