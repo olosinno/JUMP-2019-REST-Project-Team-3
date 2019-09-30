@@ -77,3 +77,7 @@ h2,h3{
 .btn-group, .card-footer{
   justify-self: flex-end;
 }
+
+.card-img-top, .card-body{
+  justify-self: flex-start;
+}
