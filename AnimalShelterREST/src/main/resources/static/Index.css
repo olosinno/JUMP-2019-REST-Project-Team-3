@@ -1,6 +1,27 @@
-div.sticky {
-  /* position: -webkit-sticky; /* Safari */
-  position: fixed;
-  right: 0;
-  padding: 1% 1% 1% 1%;
+.carousel-control-prev,
+.carousel-control-next{
+  align-items: flex-start ; /* Aligns it at the top */
+  top: 50%;
+  height: 3rem;
+  width: 3rem;
+  outline: black;
+  background-size: 10%, 10%;
+  border-radius: 10%;
+  border: 1px solid black;
+  background: white;
+  filter: invert(100%);
+}
+
+.carousel-control-next:after
+{
+  content: '>>';
+  font-size: 2rem;
+  color: red;
+}
+
+.carousel-control-prev:after 
+{
+  content: '<<';
+  font-size: 2rem;
+  color: red;
 }
