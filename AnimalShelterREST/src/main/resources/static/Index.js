@@ -439,6 +439,7 @@ function staffCards(){
                         update.innerHTML = "Update Staff";
                         update.classList.add("btn");
                         update.classList.add("btn-success");
+                        update.setAttribute("onclick", "updateStaff(" + element.id + ")");
                         var del = document.createElement("button");
                         del.innerHTML = "Delete Staff";
                         del.classList.add("btn");
@@ -588,6 +589,7 @@ function fosterCards(){
                         update.innerHTML = "Update Foster";
                         update.classList.add("btn");
                         update.classList.add("btn-success");
+                        update.setAttribute("onclick", "updateFoster(" + element.id + ")");
                         var del = document.createElement("button");
                         del.innerHTML = "Delete Foster";
                         del.classList.add("btn");
