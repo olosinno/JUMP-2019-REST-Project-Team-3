@@ -70,8 +70,9 @@ public class AnimalShelterController
 		}
 		
 		@PutMapping("/updateAnimal")
-		public String updateAnimal(@RequestBody Animal animal)
+		public String updateAnimal(@RequestBody @Valid Animal animal)
 		{
+			System.out.println("Added Animal");
 			animalService.updateAnimal(animal);
 			return "Updated";
 		}
