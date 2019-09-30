@@ -289,6 +289,7 @@ function locationCards(){
                         update.innerHTML = "Update Location";
                         update.classList.add("btn");
                         update.classList.add("btn-success");
+                        update.setAttribute("onclick", "updateShelter(" + element.id + ")");
                         var del = document.createElement("button");
                         del.innerHTML = "Delete Location";
                         del.classList.add("btn");
