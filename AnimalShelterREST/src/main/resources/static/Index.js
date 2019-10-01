@@ -1161,7 +1161,7 @@ function createNewAnimal(link)
             // Adds the Image form------------------------------------------
                 // Creates input group
                 theModalBodyFormGroup1 = document.createElement("div");
-                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
                 theModalBodyForm.append(theModalBodyFormGroup1);
 
                 theModalBodyFormGroup2 = document.createElement("div");
@@ -1209,7 +1209,7 @@ function createNewAnimal(link)
             // Adds the Size form------------------------------------------
                 // Creates input group
                 theModalBodyFormGroup1 = document.createElement("div");
-                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
                 theModalBodyForm.append(theModalBodyFormGroup1);
 
                 theModalBodyFormGroup2 = document.createElement("div");
@@ -1368,7 +1368,7 @@ function createNewAnimal(link)
             // Adds the Zip form-------------------------------------------
                 // Creates input group
                 theModalBodyFormGroup1 = document.createElement("div");
-                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
                 theModalBodyForm.append(theModalBodyFormGroup1);
 
                 theModalBodyFormGroup2 = document.createElement("div");
@@ -1416,7 +1416,7 @@ function createNewAnimal(link)
             // Adds the Image form-------------------------------------------
                 // Creates input group
                 theModalBodyFormGroup1 = document.createElement("div");
-                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
                 theModalBodyForm.append(theModalBodyFormGroup1);
 
                 theModalBodyFormGroup2 = document.createElement("div");
@@ -1503,7 +1503,7 @@ function createNewAnimal(link)
             // Adds the Image form-------------------------------------------
                 // Creates input group
                 theModalBodyFormGroup1 = document.createElement("div");
-                theModalBodyFormGroup1.className = "input-group mb-3";
+                theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
                 theModalBodyForm.append(theModalBodyFormGroup1);
 
                 theModalBodyFormGroup2 = document.createElement("div");
