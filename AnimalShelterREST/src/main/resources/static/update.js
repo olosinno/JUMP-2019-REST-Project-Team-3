@@ -77,7 +77,7 @@ function updateAnimal(theId)
     var theModalBodyForm = document.createElement("form");
     theModalBody.appendChild(theModalBodyForm);
 
- // Adds the Age form-------------------------------------------
+    // Adds the Age form-------------------------------------------
     // Creates input group
     var theModalBodyFormGroup1 = document.createElement("div");
     theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
@@ -162,7 +162,7 @@ function updateAnimal(theId)
 // Adds the Image form------------------------------------------
     // Creates input group
     theModalBodyFormGroup1 = document.createElement("div");
-    theModalBodyFormGroup1.className = "input-group mb-3";
+    theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
     theModalBodyForm.append(theModalBodyFormGroup1);
 
     theModalBodyFormGroup2 = document.createElement("div");
@@ -210,7 +210,7 @@ function updateAnimal(theId)
 // Adds the Size form------------------------------------------
     // Creates input group
     theModalBodyFormGroup1 = document.createElement("div");
-    theModalBodyFormGroup1.className = "input-group mb-3";
+    theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
     theModalBodyForm.append(theModalBodyFormGroup1);
 
     theModalBodyFormGroup2 = document.createElement("div");
@@ -254,7 +254,6 @@ function updateAnimal(theId)
     theModalBodyFormGroupText.id = "formSpecies";
     theModalBodyFormGroupText.required = true;
     theModalBodyFormGroup1.append(theModalBodyFormGroupText);
-
         
         //Open AJAX read from Controller Mappings
         var xhttp = new XMLHttpRequest();
@@ -417,7 +416,7 @@ function updateShelter(theId)
 	var theModalBodyForm = document.createElement("form");
 	theModalBody.appendChild(theModalBodyForm);
 
-	// Adds the Name form-------------------------------------------
+	  // Adds the Name form-------------------------------------------
     // Creates input group
     var theModalBodyFormGroup1 = document.createElement("div");
     theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
@@ -516,7 +515,7 @@ function updateShelter(theId)
 // Adds the Zip form-------------------------------------------
     // Creates input group
     theModalBodyFormGroup1 = document.createElement("div");
-    theModalBodyFormGroup1.className = "input-group mb-3";
+    theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
     theModalBodyForm.append(theModalBodyFormGroup1);
 
     theModalBodyFormGroup2 = document.createElement("div");
@@ -564,7 +563,7 @@ function updateShelter(theId)
 // Adds the Image form-------------------------------------------
     // Creates input group
     theModalBodyFormGroup1 = document.createElement("div");
-    theModalBodyFormGroup1.className = "input-group mb-3";
+    theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
     theModalBodyForm.append(theModalBodyFormGroup1);
 
     theModalBodyFormGroup2 = document.createElement("div");
@@ -584,7 +583,6 @@ function updateShelter(theId)
     theModalBodyFormGroupText.id = "formImage";
     theModalBodyFormGroupText.required = true;
     theModalBodyFormGroup1.append(theModalBodyFormGroupText);
-
 
 		//Open AJAX read from Controller Mappings
         var xhttp = new XMLHttpRequest();
@@ -724,7 +722,7 @@ function updateStaff(theId)
     var theModalBodyForm = document.createElement("form");
     theModalBody.appendChild(theModalBodyForm);
 
- // Adds the Name form-------------------------------------------
+    // Adds the Name form-------------------------------------------
     // Creates input group
     var theModalBodyFormGroup1 = document.createElement("div");
     theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
@@ -775,7 +773,7 @@ function updateStaff(theId)
 // Adds the Image form-------------------------------------------
     // Creates input group
     theModalBodyFormGroup1 = document.createElement("div");
-    theModalBodyFormGroup1.className = "input-group mb-3";
+    theModalBodyFormGroup1.className = "input-group mb-3 was-validated";
     theModalBodyForm.append(theModalBodyFormGroup1);
 
     theModalBodyFormGroup2 = document.createElement("div");
